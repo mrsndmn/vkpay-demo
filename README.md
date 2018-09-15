@@ -1,20 +1,23 @@
 # Test vkpay backend app
 
-Disclaimer: sorry, but i'm not js programmer. Possibly there is exists better way to do that. But that application is just a demo. That could be started easily on your localhost. It is not production solution. Just example.
+Disclaimer: sorry, but i'm not js programmer. Possibly there is exists better way to do that. But that application is just a demo that could be started easily on your localhost. It is not production solution! Just example or a sandbox.
 Feel free to suggest pull requests.
 
 ## Getting started
-
-Before you start vkpay demo app, you have to fill the merchant and apps parameters
+Make shure that node-js and npm are installed
 
 ```bash
 npm install
+cp .env.example .env
+
+# now you have to fill the merchant and apps parameters in .env
 npm run demo-server # starting demo server
 npm start # starting frontend app
 ```
 
 
 =============================
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

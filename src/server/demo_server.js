@@ -51,6 +51,12 @@ app.get('/app_params', function (req, res) {
   res.json(pay_window_params); // responsing with json
 });
 
+
+app.post('/url_for_payments_status_notifications', (req, res) => {
+  console.log("in url_for_payments_status_notifications:\n", req);
+})
+
+
 app.listen(process.env.VKPAY_DEMO_BACKEND_PORT, function () {
   console.log('Example app listening on port ' + process.env.VKPAY_DEMO_BACKEND_PORT);
 });
