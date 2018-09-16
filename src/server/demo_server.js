@@ -7,6 +7,8 @@ let sha1 = require('sha1');
 let md5 = require('md5');
 let fs = require('fs');
 
+var openssl = require('openssl-verify');
+
 const MERCH_ID = process.env.MERCH_ID || process.exit(1);
 const MERCH_PRIVATE_KEY = process.env.MERCH_PRIVATE_KEY || process.exit(1);
 const APP_SECRET_KET    = process.env.APP_SECRET_KET || process.exit(1);
@@ -48,7 +50,8 @@ app.get('/app_params', function (req, res) {
       "ts": merch_data.ts,
       "currency": "RUB",
       "merchant_data": merch_data_base64,
-      "merchant_sign": sha1( merch_data_base64 + MERCH_PRIVATE_KEY )
+      "merchant_sign": sha1( merch_data_base64 + MERCH_PRIVATE_KEY ),
+      "my_own_key": 123123123123 // you can put here any data you want
   };
 
   let pay_window_params = {
@@ -68,9 +71,14 @@ app.get('/app_params', function (req, res) {
   res.json(pay_window_params); // responsing with json
 });
 
-
 app.post('/url_for_payments_status_notifications', (req, res) => {
+  // var certificate = fs.readFileSync('certificate.pem', "utf8");
   console.log("in url_for_payments_status_notifications:\n", req);
+
+  // openssl.verifyCertificate(certificate, 'certs', function(result) {
+  //     console.log(result);
+  // })
+
 })
 
 
