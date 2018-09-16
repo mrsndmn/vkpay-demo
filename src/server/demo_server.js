@@ -71,7 +71,7 @@ app.get('/app_params', function (req, res) {
   res.json(pay_window_params); // responsing with json
 });
 
-app.post('/url_for_payments_status_notifications', (req, res) => {
+app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
   console.log("in url_for_payments_status_notifications:\n", req);
 
