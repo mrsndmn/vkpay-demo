@@ -6,6 +6,7 @@ require('dotenv').load();
 let sha1 = require('sha1');
 let md5 = require('md5');
 let fs = require('fs');
+let axios = require('axios');
 
 var openssl = require('openssl-verify');
 
@@ -87,6 +88,43 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
 
 })
 
+
+const DMR_API_URL = 'https://api-spare.money.mail.ru';
+const DMR_REFUND_URL = '/money/2-02/transaction/refund';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+app.post("/refund", (req, res) => {
+  console.log("in refund");
+
+  let data = {
+    body: {
+      transaction_id: req.param("txn_id"),
+      reason: req.param("reason")
+    },
+    header: {
+      ts: + new Date(),
+      client_id: MERCH_ID
+    }
+  };
+
+  console.log("data:", data);
+
+
+  let base64_data = Buffer.from(JSON.stringify(data)).toString('base64');
+  let sign = sha1( DMR_REFUND_URL + base64_data + MERCH_PRIVATE_KEY )
+
+  axios.post(DMR_API_URL + DMR_REFUND_URL, { data: base64_data, signature: sign })
+        .then(function(response) {
+            console.log(response.data);
+            console.log(response.status);
+            console.log(response.statusText);
+            console.log(response.headers);
+            console.log(response.config);
+        }
+  );
+
+
+})
 
 app.listen(process.env.VKPAY_DEMO_BACKEND_PORT, function () {
   console.log('Example app listening on port ' + process.env.VKPAY_DEMO_BACKEND_PORT);
