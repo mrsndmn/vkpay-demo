@@ -19,6 +19,7 @@ class App extends Component {
       .then( res => res.json() )
       .then( params => {
         console.log("params:", params);
+        console.log("params stringified:", JSON.stringify(params));
         VK.callMethod("openExternalApp", "vkpay", params); }
       )
   }
