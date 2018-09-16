@@ -20,8 +20,12 @@ console.log("MERCH_ID " + MERCH_ID +
 
 // each transaction must have its unique order_id
 function dummySaveLastOrderID(last_order_id) {
+  let new_order_id_str = 'LAST_ORDER_ID='+last_order_id;
   let data = fs.readFileSync('.env', 'utf-8');
-  let newValue = data.replace(/^LAST_ORDER_ID=(\d+)?/gim, 'LAST_ORDER_ID='+last_order_id);
+  let newValue = data.replace(/^(LAST_ORDER_ID=(\d+)?)/gim, new_order_id_str);
+  if (newValue === data)
+    newValue += "\n" + new_order_id_str + "\n";
+
   fs.writeFileSync('.env', newValue, 'utf-8');
 }
 
