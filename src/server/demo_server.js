@@ -74,7 +74,7 @@ app.get('/app_params', function (req, res) {
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
   console.log("in url_for_payments_status_notifications:\n", req);
-
+  res.json({});
   // openssl.verifyCertificate(certificate, 'certs', function(result) {
   //     console.log(result);
   // })
