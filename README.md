@@ -6,6 +6,7 @@ Feel free to suggest pull requests.
 
 Also I'm sure that if you fill the .env variables correctly you will get awesome working vkpay button.
 
+## Little warning
 This application can be opened only inside of vk applocation iframe.
 
 ## Getting started
@@ -19,6 +20,7 @@ cp .env.example .env
 npm run demo-server # starting demo server
 npm start # starting frontend app
 ```
+After you start the last command https://127.0.0.1:3000/ will be opened in your brouser with "Error: Wrong window.name property." message. Its normal behaviour. See [little warning](#Little-warning)
 
 
 ### todo
