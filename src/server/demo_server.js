@@ -5,24 +5,37 @@ require('dotenv').load();
 
 let sha1 = require('sha1');
 let md5 = require('md5');
+let fs = require('fs');
 
 const MERCH_ID = process.env.MERCH_ID || process.exit(1);
 const MERCH_PRIVATE_KEY = process.env.MERCH_PRIVATE_KEY || process.exit(1);
 const APP_SECRET_KET    = process.env.APP_SECRET_KET || process.exit(1);
 
-//                              pretty dirty hack. you have to count yours orders
-let last_order_id = Math.random()*100000 | 0; // omg js: DOUBLE_NUMBER | 0 = (int) DOUBLE_NUMBER
+let last_order_id = process.env.LAST_ORDER_ID || 1;
+console.log("MERCH_ID " + MERCH_ID +
+            "\nMERCH_PRIVATE_KEY " + MERCH_PRIVATE_KEY +
+            "\nAPP_SECRET_KET " + APP_SECRET_KET +
+            "\nlast_order_id=" + last_order_id)
 
+
+// each transaction must have its unique order_id
+function dummySaveLastOrderID(last_order_id) {
+  let data = fs.readFileSync('.env', 'utf-8');
+  let newValue = data.replace(/^LAST_ORDER_ID=(\d+)?/gim, 'LAST_ORDER_ID='+last_order_id);
+  fs.writeFileSync('.env', newValue, 'utf-8');
+}
 
 app.get('/app_params', function (req, res) {
   let amount = 1;
 
   merch_data = {
     "amount": amount,
-    "order_id": last_order_id++,
+    "order_id": last_order_id,
     "currency": "RUB",
     "ts": + new Date(),
-  }
+  };
+
+  dummySaveLastOrderID(++last_order_id);
 
   merch_data_base64 = Buffer.from(JSON.stringify(merch_data)).toString('base64')
 
