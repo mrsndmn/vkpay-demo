@@ -26,6 +26,9 @@
     },
     "/url_for_payment_status_notifications": {
       "target": "http://127.0.0.1:3080/"
+    },
+    "/refund": {
+      "target": "http://127.0.0.1:3080/"
     }
   }
 }
