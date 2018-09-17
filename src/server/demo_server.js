@@ -64,7 +64,7 @@ app.get('/app_params', function (req, res) {
   }
 
   let params = ""
-  Object.keys(pay_window_params).forEach(function(key){ if (key != "action") params += key + "=" + pay_window_params[key] })
+  Object.keys(pay_window_params).sort((a,b) => a > b).forEach(function(key){ if (key != "action") params += key + "=" + pay_window_params[key] })
   console.log("params=\n", params )
   pay_window_params.sign = md5(params + APP_SECRET_KET)
 
