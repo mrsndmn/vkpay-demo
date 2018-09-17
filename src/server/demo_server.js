@@ -6,13 +6,17 @@ require('dotenv').load();
 let sha1 = require('sha1');
 let md5 = require('md5');
 let fs = require('fs');
-let axios = require('axios');
 
 var openssl = require('openssl-verify');
 
-const MERCH_ID = process.env.MERCH_ID || process.exit(1);
-const MERCH_PRIVATE_KEY = process.env.MERCH_PRIVATE_KEY || process.exit(1);
-const APP_SECRET_KET    = process.env.APP_SECRET_KET || process.exit(1);
+const MERCH_ID = process.env.MERCH_ID;
+const MERCH_PRIVATE_KEY = process.env.MERCH_PRIVATE_KEY;
+const APP_SECRET_KET    = process.env.APP_SECRET_KET;
+
+if(!MERCH_ID || !MERCH_PRIVATE_KEY || !APP_SECRET_KET){
+  console.log("One of theese MERCH_ID MERCH_PRIVATE_KEY APP_SECRET_KET enviroment variables is not defined. Please fill the .env file or see README.md");
+  process.exit(1)
+}
 
 let last_order_id = process.env.LAST_ORDER_ID || 1;
 console.log("MERCH_ID " + MERCH_ID +
