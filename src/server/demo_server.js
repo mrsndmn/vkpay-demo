@@ -53,7 +53,7 @@ function dummySaveLastOrderID(last_order_id) {
 //// Server controllers
 ////
 
-////// Getting apps params
+////// Getting params for payment window
 // todo fetch any usefull data from request
 
 app.get('/app_params', function (req, res) {
@@ -101,12 +101,23 @@ app.get('/app_params', function (req, res) {
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
   console.log("in url_for_payments_status_notifications:\n", req);
-  req = req;
+  // req = req;
 
-  let data = {};
+  let data = {
+    body: {
+      transaction_id: req.params.transaction_id,
+      notify_type: "TRANSACTION_STATUS"
+    },
+    header: {
+      status: "OK",
+      ts: ((new Date() / 1000) | 0),
+      client_id: MERCH_ID
+    }
+  };
   let sign = sha1( base64.encode(JSON.stringify(data) + MERCH_PRIVATE_KEY ) )
 
-  res.json({"data": data, "signature": sign});
+  // responsing wit that json
+  res.json({"data": data, "signature": sign, version: "2-02"});
 
   // openssl.verifyCertificate(certificate, 'certs', function(result) {
   //     console.log(result);
@@ -132,7 +143,7 @@ app.post("/refund", (req, res) => {
       reason: req.query["reason"]
     },
     header: {
-      ts: ((+new Date()) / 1000 | 0),
+      ts: ((new Date() / 1000) | 0),
       client_id: MERCH_ID
     }
   };
