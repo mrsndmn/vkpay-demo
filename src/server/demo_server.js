@@ -1,6 +1,11 @@
 let express = require('express');
 let app = express();
 
+let bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
+
 let sha1 = require('sha1');
 let md5 = require('md5');
 var base64 = require('base-64'); // todo check if it need to utf8encode before
@@ -101,11 +106,13 @@ app.get('/app_params', function (req, res) {
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
   console.log("in url_for_payments_status_notifications:\n", req);
-  // req = req;
+  let req_data = JOSN.parse(base64.decode(req.body.data));
+  console.log(" req_data:", req_data);
+
 
   let data = {
     body: {
-      transaction_id: req.params.transaction_id,
+      transaction_id: req_data.transaction_id,
       notify_type: "TRANSACTION_STATUS"
     },
     header: {
