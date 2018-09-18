@@ -146,7 +146,7 @@ app.post("/refund", (req, res) => {
   let data = {
     body: {
       transaction_id: req.query["txn_id"],
-      reason: req.query["reason"]
+      reason: req.query["reason"] || "Any reason"
     },
     header: {
       ts: ((new Date() / 1000) | 0),
