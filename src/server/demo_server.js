@@ -105,13 +105,13 @@ app.get('/app_params', function (req, res) {
 
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
-  console.log("in url_for_payments_status_notifications:\n", req);
+  console.log("in url_for_payments_status_notifications");
   let req_data = JSON.parse(base64.decode(req.body.data));
   console.log(" req_data:", req_data);
 
   let data = {
     body: {
-      transaction_id: req_data.transaction_id,
+      transaction_id: req_data.body.transaction_id,
       notify_type: "TRANSACTION_STATUS"
     },
     header: {
@@ -123,7 +123,9 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
   let sign = sha1(base64.encode(JSON.stringify(data) + MERCH_PRIVATE_KEY))
 
   // responsing wit that json
-  res.json({ data: data, signature: sign, version: "2-02" });
+  let notification_resp = { data: data, signature: sign, version: "2-02" };
+  console.log("notification_resp", notification_resp);
+  res.json( notification_resp );
 
   // openssl.verifyCertificate(certificate, 'certs', function(result) {
   //     console.log(result);
