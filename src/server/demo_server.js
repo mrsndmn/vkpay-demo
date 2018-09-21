@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 let sha1 = require('sha1');
 let md5 = require('md5');
 var base64 = require('base-64'); // todo check if it need to utf8encode before
-let openssl = require('openssl-verify');
+const NodeRSA = require('node-rsa');
 
 let fs = require('fs');
 let axios = require('axios');
@@ -104,10 +104,21 @@ app.get('/app_params', function (req, res) {
 ////// url_for_payment_status_notifications :)
 
 let transactions_hash = {};
+const keyData = cert = fs.readFileSync("certs/dmr_notifications.crt");;
+let key = new NodeRSA();
+key.importKey(keyData, 'pkcs8');
+
 
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
   console.log("in url_for_payments_status_notifications");
+
+  if(!key.verify(req.body.data, base64.decode(req.body.signature))) {
+    console.log("bad sign!");
+    res.json({});
+    return;
+  }
+
   let req_data = JSON.parse(base64.decode(req.body.data));
   console.log(" req_data:", req_data);
 
