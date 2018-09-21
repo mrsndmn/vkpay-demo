@@ -103,11 +103,14 @@ app.get('/app_params', function (req, res) {
 
 ////// url_for_payment_status_notifications :)
 
+let transactions_hash = {};
+
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
   console.log("in url_for_payments_status_notifications");
   let req_data = JSON.parse(base64.decode(req.body.data));
   console.log(" req_data:", req_data);
+
 
   let data = {
     body: {
@@ -120,11 +123,22 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
       client_id: MERCH_ID
     }
   };
-  let sign = sha1(base64.encode(JSON.stringify(data) + MERCH_PRIVATE_KEY))
 
-  // responsing wit that json
+  if(req_data.transaction_id in transactions_hash) {
+    data.header["status"] = "ERROR";
+    data.header["error"] = {
+      "code":"ERR_DUPLICATE",
+      "message":"This notificaction has already been got"
+    };
+  }
+  else {
+    transactions_hash[req_data.transaction_id] = true;
+  }
+
+  let sign = sha1(base64.encode(JSON.stringify(data) + MERCH_PRIVATE_KEY))
   let notification_resp = { data: data, signature: sign, version: "2-02" };
   console.log("notification_resp", notification_resp);
+  // responsing with json
   res.json( notification_resp );
 
   // openssl.verifyCertificate(certificate, 'certs', function(result) {
