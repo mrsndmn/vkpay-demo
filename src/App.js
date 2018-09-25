@@ -12,6 +12,11 @@ class App extends Component {
         console.log("VK init FAILED");
       }
     );
+
+    VK.addCallback('onExternalAppDone', (data) => {
+      console.log("onExternalAppDone")
+      console.log(data.status);
+  });
   }
 
   payVKPay() {
