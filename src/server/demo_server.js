@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 let sha1 = require('sha1');
 let md5 = require('md5');
 let base64 = require('base-64'); // todo check if it need to utf8encode before
-let ursa = require('ursa')
+let crypto = require('crypto');
 
 let fs = require('fs');
 let axios = require('axios');
@@ -105,14 +105,15 @@ app.get('/app_params', function (req, res) {
 
 let transactions_hash = {};
 const keyData = fs.readFileSync("certs/dmr_notifications.crt");;
-var pub_key = ursa.createPublicKey(keyData);
-
+var verifier = crypto.createVerify('sha256');
 
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
   console.log("in url_for_payments_status_notifications");
 
-  if( !pub_key.createPublicKey('sha256', req.body.data, base64.decode(req.body.signature), 'base64') ) {
+  verifier.update(sign);
+
+  if( !verifier.verify(req.body.data, req.body.signature, 'base64') ) {
     console.log("bad sign!");
     res.json({});
     return;

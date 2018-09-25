@@ -15,8 +15,7 @@
     "react-dom": "^16.5.1",
     "react-scripts": "1.1.5",
     "react-vk": "^3.0.0",
-    "sha1": "^1.1.1",
-    "ursa": "^0.9.4"
+    "sha1": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
