@@ -8,8 +8,8 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 let sha1 = require('sha1');
 let md5 = require('md5');
-var base64 = require('base-64'); // todo check if it need to utf8encode before
-const NodeRSA = require('node-rsa');
+let base64 = require('base-64'); // todo check if it need to utf8encode before
+let ursa = require('ursa')
 
 let fs = require('fs');
 let axios = require('axios');
@@ -104,16 +104,15 @@ app.get('/app_params', function (req, res) {
 ////// url_for_payment_status_notifications :)
 
 let transactions_hash = {};
-const keyData = cert = fs.readFileSync("certs/dmr_notifications.crt");;
-let key = new NodeRSA();
-key.importKey(keyData, 'pkcs8');
+const keyData = fs.readFileSync("certs/dmr_notifications.crt");;
+var pub_key = ursa.createPublicKey(keyData);
 
 
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
   console.log("in url_for_payments_status_notifications");
 
-  if(!key.verify(req.body.data, base64.decode(req.body.signature))) {
+  if( !pub_key.createPublicKey('sha256', req.body.data, base64.decode(req.body.signature), 'base64') ) {
     console.log("bad sign!");
     res.json({});
     return;
