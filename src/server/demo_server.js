@@ -81,7 +81,7 @@ app.get('/app_params', function (req, res) {
     currency: "RUB",
     merchant_data: merch_data_base64,
     merchant_sign: sha1(merch_data_base64 + MERCH_PRIVATE_KEY),
-    my_own_key: 123123123123 // you can put here any data you want
+    event_name: 123123123123 // you can put here any data you want
   };
 
   let pay_window_params = {
