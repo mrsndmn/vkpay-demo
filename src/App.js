@@ -15,7 +15,7 @@ class App extends Component {
 
     VK.addCallback('onExternalAppDone', (data) => {
       console.log("onExternalAppDone")
-      console.log(data.status);
+      console.log(data);
   });
   }
 

@@ -104,16 +104,17 @@ app.get('/app_params', function (req, res) {
 ////// url_for_payment_status_notifications :)
 
 let transactions_hash = {};
-const keyData = fs.readFileSync("certs/dmr_notifications.crt");;
-var verifier = crypto.createVerify('sha256');
+const pubKeyData = fs.readFileSync("certs/dmr_notifications.crt");
 
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
-  console.log("in url_for_payments_status_notifications");
+  console.log("in url_for_payments_status_notificatio\n", req.body.signature, "\n\n",req.body.data);
 
-  verifier.update(sign);
+  var verifier = crypto.createVerify('RSA-SHA1');
+  verifier.update(req.body.data);
 
-  if( !verifier.verify(req.body.data, req.body.signature, 'base64') ) {
+  let result = verifier.verify(pubKeyData, req.body.signature, 'base64') 
+  if(!result) {
     console.log("bad sign!");
     res.json({});
     return;
@@ -148,8 +149,7 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
 
   let sign = sha1(base64.encode(JSON.stringify(data) + MERCH_PRIVATE_KEY))
   let notification_resp = { data: data, signature: sign, version: "2-02" };
-  console.log("notification_resp", notification_resp);
-  // responsing with json
+  console.log("notification_resp", JSON.stringify(notification_resp,null,2)); // responsing with json
   res.json( notification_resp );
 
   // openssl.verifyCertificate(certificate, 'certs', function(result) {
