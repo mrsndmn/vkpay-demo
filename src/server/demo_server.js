@@ -135,16 +135,17 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
       client_id: MERCH_ID
     }
   };
-
-  if(req_data.transaction_id in transactions_hash) {
+  console.log(JSON.stringify(transactions_hash,null,2));
+  if(req_data.body.transaction_id in transactions_hash) {
     data.header["status"] = "ERROR";
     data.header["error"] = {
       "code":"ERR_DUPLICATE",
       "message":"This notificaction has already been got"
     };
+    transactions_hash[req_data.body.transaction_id]  += 1;
   }
   else {
-    transactions_hash[req_data.transaction_id] = true;
+    transactions_hash[req_data.body.transaction_id] = 1;
   }
 
   let sign = sha1(base64.encode(JSON.stringify(data) + MERCH_PRIVATE_KEY))
