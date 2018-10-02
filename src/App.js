@@ -20,6 +20,8 @@ class App extends Component {
   }
 
   payVKPay() {
+    // todo
+    // на самом деже id приложеньки можно получить из урла запроса фронта. Его нужно сохранить и передавать на бэкенд в случае, когда хочешь поднять платежное окно
     fetch("/app_params")
       .then( res => res.json() )
       .then( params => {
