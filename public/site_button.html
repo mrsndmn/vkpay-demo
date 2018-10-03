@@ -1,0 +1,38 @@
+<html>
+
+<head>
+
+<title>VKPay button</title>
+
+</head>
+
+<body>
+
+    <button onclick="payVKPay()">payVKPay</button>
+
+</body>
+
+<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
+<script type="text/javascript">
+  APP_ID = "6709891";
+  VKPAY_PARAMS_URL = "http://127.0.0.1:3080/app_params";
+
+  VK.init({
+    apiId: APP_ID
+  });
+
+  function payVKPay() {
+    // any preprocessing
+    fetch(VKPAY_PARAMS_URL)
+      .then(response => response.json())
+      .then( (params) => {
+        // any postprocessingd
+        console.log("after fetch", params);
+        console.log(VK.callMethod("openExternalApp", "vkpay", params));
+      }
+    );
+  }
+
+</script>
+
+</html>
