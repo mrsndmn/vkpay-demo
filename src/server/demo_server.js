@@ -11,6 +11,7 @@ let md5 = require('md5');
 let base64 = require('base-64'); // todo check if it need to utf8encode before
 let crypto = require('crypto');
 
+const path = require('path');
 let fs = require('fs');
 let axios = require('axios');
 const querystring = require('querystring');
@@ -57,6 +58,11 @@ function dummySaveLastOrderID(last_order_id) {
 ////
 //// Server controllers
 ////
+
+
+app.get("/", function(req, res) {
+  res.sendFile("site_button.html", { root: path.join(__dirname, '../../public') });
+})
 
 ////// Getting params for payment window
 // todo fetch any usefull data from request
