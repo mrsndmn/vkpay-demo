@@ -74,14 +74,13 @@ app.get('/app_params', function (req, res) {
   dummySaveLastOrderID(last_order_id);
 
   merch_data_base64 = base64.encode(JSON.stringify(merch_data))
-
   let data = {
     order_id: merch_data.order_id,
     ts: merch_data.ts,
     currency: "RUB",
     merchant_data: merch_data_base64,
     merchant_sign: sha1(merch_data_base64 + MERCH_PRIVATE_KEY),
-    event_name: 123123123123 // you can put here any data you want
+    event_name: "ыва" // you can put here any data you want
   };
 
   let pay_window_params = {
@@ -108,17 +107,18 @@ const pubKeyData = fs.readFileSync("certs/dmr_notifications.crt");
 
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
-  console.log("in url_for_payments_status_notificatio\n", req.body.signature, "\n\n",req.body.data);
+  console.log("in url_for_payments_status_notificatio\n", req.body);
 
   var verifier = crypto.createVerify('RSA-SHA1');
   verifier.update(req.body.data);
 
   let result = verifier.verify(pubKeyData, req.body.signature, 'base64') 
-  if(!result) {
+  if(false && !result) {
     console.log("bad sign!");
     res.json({});
     return;
   }
+  console.log("sign is ok");
 
   let req_data = JSON.parse(base64.decode(req.body.data));
   console.log(" req_data:", req_data);
@@ -137,6 +137,7 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
   };
   console.log(JSON.stringify(transactions_hash,null,2));
   if(req_data.body.transaction_id in transactions_hash) {
+    console.log("DUPLICATE!");
     data.header["status"] = "ERROR";
     data.header["error"] = {
       "code":"ERR_DUPLICATE",
@@ -147,9 +148,10 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
   else {
     transactions_hash[req_data.body.transaction_id] = 1;
   }
-
-  let sign = sha1(base64.encode(JSON.stringify(data) + MERCH_PRIVATE_KEY))
-  let notification_resp = { data: data, signature: sign, version: "2-02" };
+  console.log("data ", JSON.stringify(data, null, 2));
+  let notification_resp = { data: base64.encode(JSON.stringify(data)), version: req.body.version };
+  console.log("for sign = ", notification_resp.data + MERCH_PRIVATE_KEY);
+  notification_resp.sign = sha1(notification_resp.data + MERCH_PRIVATE_KEY);
   console.log("notification_resp", JSON.stringify(notification_resp,null,2)); // responsing with json
   res.json( notification_resp );
 
