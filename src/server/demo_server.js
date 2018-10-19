@@ -151,7 +151,7 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
   console.log("data ", JSON.stringify(data, null, 2));
   let notification_resp = { data: base64.encode(JSON.stringify(data)), version: req.body.version };
   console.log("for sign = ", notification_resp.data + MERCH_PRIVATE_KEY);
-  notification_resp.sign = sha1(notification_resp.data + MERCH_PRIVATE_KEY);
+  notification_resp.signature = sha1(notification_resp.data + MERCH_PRIVATE_KEY);
   console.log("notification_resp", JSON.stringify(notification_resp,null,2)); // responsing with json
   res.json( notification_resp );
 
