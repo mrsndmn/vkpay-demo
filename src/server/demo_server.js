@@ -60,7 +60,7 @@ function dummySaveLastOrderID(last_order_id) {
 
 ////// Getting params for payment window
 // todo fetch any usefull data from request
-
+var stringify = require('json-stable-stringify');
 app.get('/app_params', function (req, res) {
   let amount = 1;
 
@@ -85,14 +85,17 @@ app.get('/app_params', function (req, res) {
 
   let pay_window_params = {
     amount: amount,
-    data: JSON.stringify(data),
+    data: data,
     description: "Оплата заказа",
     action: "pay-to-service",
     merchant_id: MERCH_ID,
+    version: 2
   }
 
   let params = ""
-  Object.keys(pay_window_params).sort((a, b) => a > b).forEach(function (key) { if (key != "action") params += key + "=" + pay_window_params[key] })
+  Object.keys(pay_window_params).sort((a, b) => a > b).forEach(
+          function (key) { if (key != "action") params += key + "=" + ( key == "data"? stringify( pay_window_params[key] ) : pay_window_params[key]  ) }
+  )
   console.log("params=\n", params)
   pay_window_params.sign = md5(params + APP_SECRET_KET)
 
@@ -177,6 +180,7 @@ app.post("/refund", (req, res) => {
     body: {
       transaction_id: req.query["txn_id"],
       reason: req.query["reason"] || "Any reason"
+//      amount: 49
     },
     header: {
       ts: ((new Date() / 1000) | 0),
