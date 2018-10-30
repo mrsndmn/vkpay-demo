@@ -68,8 +68,7 @@ app.get('/app_params', function (req, res) {
     amount: amount,
     order_id: ++last_order_id,
     currency: "RUB",
-    ts: (Date.now() / 1000 | 0), 
-    cashback: { pay_time: (Date.now() / 1000 | 0) + 100, amount_percent: 10 }
+    ts: (Date.now() / 1000 | 0),
   };
 
   dummySaveLastOrderID(last_order_id);
@@ -81,8 +80,7 @@ app.get('/app_params', function (req, res) {
     currency: "RUB",
     merchant_data: merch_data_base64,
     merchant_sign: sha1(merch_data_base64 + MERCH_PRIVATE_KEY),
-    event_name: "ыва", // you can put here any data you want
-    offline_cashback: {"name": 'Test for offline cashback', "avatar": 'https://content.foto.my.mail.ru/corp/d.tarasov/_myphoto/h-2.jpg'}
+    event_name: "ыва" // you can put here any data you want
   };
 
   let pay_window_params = {
