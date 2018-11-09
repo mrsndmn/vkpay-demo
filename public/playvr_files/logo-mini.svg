@@ -1,0 +1,22 @@
+<svg width="40" height="24" viewBox="0 0 40 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Logo</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-350 379)">
+<g id="Logo">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(373.84 -365.058)" fill="#FFFFFF"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(350 -379)" fill="#FFFFFF"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(361.332 -379)" fill="#FFB905"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 5.82967 9.28342L 2.85795e-06 -1.31648e-07L 5.25607 -1.31648e-07L 11.0799 9.28342L 5.82967 9.28342Z"/>
+<path id="path1_fill" fill-rule="evenodd" d="M 11.355 18.0894L 8.93111e-07 0L 5.25607 0L 13.9772 13.9021L 11.355 18.0894Z"/>
+<path id="path2_fill" fill-rule="evenodd" d="M 13.7196 4.61871L 5.26777 18.0894L -8.57386e-06 18.0894L 11.3491 -8.4255e-06L 21.5745 -8.4255e-06C 23.4559 -8.4255e-06 25.2603 0.734454 26.5907 2.04181C 27.921 3.34916 28.6684 5.12232 28.6684 6.9712C 28.6684 8.82007 27.921 10.5932 26.5907 11.9006C 25.2603 13.2079 23.4559 13.9424 21.5745 13.9424L 12.5081 13.9424L 15.4346 9.34094L 21.5745 9.34094C 22.2094 9.34094 22.8183 9.09308 23.2672 8.65191C 23.7162 8.21073 23.9684 7.61237 23.9684 6.98845C 23.9684 6.36453 23.7162 5.76615 23.2672 5.32498C 22.8183 4.8838 22.2094 4.63596 21.5745 4.63596L 13.7196 4.61871Z"/>
+</defs>
+</svg>

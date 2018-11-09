@@ -12,25 +12,39 @@
 
 </body>
 
-<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
+<!-- <script src="http://vk.com/js/api/xd_connection.js?2";  type="text/javascript"></script> -->
+<script src="//vk.com/js/api/openapi.js?154" type="text/javascript"></script>
 <script type="text/javascript">
-  APP_ID = "6709891";
-  VKPAY_PARAMS_URL = "http://127.0.0.1:3080/app_params";
+  APP_ID = "6711439";
+  VKPAY_PARAMS_URL = "http://127.0.0.1/app_params";
 
   VK.init({
-    apiId: APP_ID
+    apiId: APP_ID,
   });
+// <!-- 
+//   VK.init(function() { 
+//       // API initialization succeeded 
+//       // Your code here 
+//     }, function() { 
+//       // API initialization failed 
+//       // Can reload page here 
+//     }, '5.69'); -->
 
   function payVKPay() {
     // any preprocessing
-    fetch(VKPAY_PARAMS_URL)
-      .then(response => response.json())
-      .then( (params) => {
-        // any postprocessingd
-        console.log("after fetch", params);
-        console.log(VK.callMethod("openExternalApp", "vkpay", params));
-      }
-    );
+
+    // VK.Auth.login( (p) => {
+    //   console.log(p);
+      fetch(VKPAY_PARAMS_URL)
+        .then(response => response.json())
+        .then( (params) => {
+          console.log(JSON.stringify(params))
+          VK.App.open("vkpay",
+            params
+            // {"amount":1,"data":"{\"order_id\":2222325,\"currency\":\"RUB\",\"merchant_data\":\"eyJhbW91bnQiOjEsIm9yZGVyX2lkIjoyMjIyMzI1LCJjdXJyZW5jeSI6IlJVQiIsInRzIjoxNTM4NjY3MjQwfQ==\",\"merchant_sign\":\"6a104e262d0db5d96119f5192e0fe81a1776f011\",\"event_name\":123123123123}","description":"Оплата заказа","action":"pay-to-service","merchant_id":"749514","sign":"49351c5e26799597d89387287a24e352"}
+          );
+        })
+      // });
   }
 
 </script>

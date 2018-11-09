@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}
+</style><style type="text/css">.gm-control-active img{box-sizing:content-box;pointer-events:none}.gm-control-active:hover img:nth-child(1),.gm-control-active:active img:nth-child(1),.gm-control-active:active img:nth-child(2){display:none}
+</style><link type="text/css" rel="stylesheet" href="playvr_files/css.css"><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px;box-sizing:border-box}
+</style><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style-pbc{transition:opacity ease-in-out;background-color:rgba(0,0,0,0.45);text-align:center}.gm-style-pbt{font-size:22px;color:white;font-family:Roboto,Arial,sans-serif;position:relative;margin:0;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+</style>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+	<title>Главная | PlayVR</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<script src="playvr_files/jquery.js"></script>
+	<link rel="canonical" href="https://playvr.ru/vkpay">
+	<!-- base href="https://playvr.ru/" -->
+	<style>
+	    body {
+	        opacity: 0;
+	        transition: 0.3s;
+	    }
+	</style>
+<script type="text/javascript" charset="UTF-8" src="playvr_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="playvr_files/util.js"></script><script type="text/javascript" charset="UTF-8" src="playvr_files/map.js"></script><script type="text/javascript" charset="UTF-8" src="playvr_files/marker.js"></script><script type="text/javascript" charset="UTF-8" src="playvr_files/infowindow.js"></script><style type="text/css">.gm-style {
+        font: 400 11px Roboto, Arial, sans-serif;
+        text-decoration: none;
+      }
+      .gm-style img { max-width: none; }</style><script type="text/javascript" charset="UTF-8" src="playvr_files/onion.js"></script><script type="text/javascript" charset="UTF-8" src="playvr_files/controls.js"></script><script type="text/javascript" charset="UTF-8" src="playvr_files/stats.js"></script></head>
+
+<body>
+
+	<header class="header">
+		<div class="wraper_800">
+			<div class="head_logo">
+				<a href="https://playvr.ru/vkpay" title="PlayVR">
+					 <img src="playvr_files/playvr_logo.png" alt="PlayVR">
+				</a>
+			</div>
+			<div class="head_menu">
+				<div class="head_menu_open menu-toggle"></div>
+				<div class="head_menu_ul_mobil">
+					<div class="head_menu_ul_wrap">
+						<a href="https://playvr.ru/vkpay" title="PlayVR" class="head_menu_logo">
+							 <img src="playvr_files/logo-mini.svg" alt="PlayVR">
+						</a>
+				        <div class="head_menu_clos menu-toggle"></div>
+				        <ul class="head_menu_ul"><li class="head_menu_li first active"><a href="https://playvr.ru/vkpay" class="head_menu_a">ГЛАВНАЯ</a></li><li class="head_menu_li"><a href="https://playvr.ru/vk-pay/igryi/" class="head_menu_a">Игры</a></li><li class="head_menu_li last"><a href="https://playvr.ru/vk-pay/lokaczii/" class="head_menu_a">Локации</a></li></ul>
+				        <!--
+						<ul class="head_menu_ul">
+							 <li class="head_menu_li" >
+								 <a href="#" class="head_menu_a" >Главная</a>
+							 </li>
+							 <li class="head_menu_li" >
+								 <a href="#" class="head_menu_a" >Игры</a>
+							 </li>
+							 <li class="head_menu_li" >
+								 <a href="#" class="head_menu_a" >Локации</a>
+							 </li>
+							 <li class="head_menu_li" >
+								 <a href="#" class="head_menu_a" >Что такое PlayVR</a>
+							 </li>
+						</ul>
+						-->
+					</div>
+			    </div>
+			</div>
+	    </div>
+	</header><!-- .header-->
+	<style>
+		.header {
+			position: absolute;
+			width: 750px;
+			height: 76px;
+			left: 50%;
+			top: 14px;
+			margin-left: -376px;
+			background: #fff;
+			z-index: 999;
+			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+			border-radius: 8px;
+		}
+		.header .wraper_800 {
+			width: 100%;
+		}
+		.head_logo {
+			float: left;
+			padding: 17px 0 0 40px;
+		}
+		.head_menu {
+			float: right;
+			padding: 28px 3px 0 0;
+		}
+		.head_menu_li {
+			float: left;
+			padding-right: 37px;
+		}
+		.head_menu_a {
+			font-weight: 800;
+			line-height: normal;
+			font-size: 16px;
+			text-transform: uppercase;
+			color: #000;
+			text-decoration: none;
+		}
+		.head_menu_a:hover,
+		.active .head_menu_a {
+			color: #FFCB05;
+		}
+		.head_menu_logo {
+			display: none;
+		}
+
+		@media screen and (max-width:767px){
+			.header {
+				position: relative;
+				width: 100%;
+				height: 63px;
+				left: auto;
+				top: auto;
+				margin: 0 auto;
+				background: #FFFFFF;
+				box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+				border-radius: 0px;
+			}
+			.head_logo {
+				padding: 14px 0 0 20px;
+				width: 87px;
+				height: 35px;
+			}
+			.head_menu {
+				padding: 20px 20px 0 0;
+			}
+			.head_menu_ul_mobil{
+				display: none;
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				background: rgba(0,0,0,0.95);
+				z-index: 999;
+			}
+			.head_menu_open {
+				width: 32px;
+				height: 22px;
+				cursor: pointer;
+				background: url(/assets/vkpay/images/menu_open.png) no-repeat center center;
+			}
+			.head_menu_clos{
+				width: 25px;
+				height: 25px;
+				cursor: pointer;
+				background: url(/assets/vkpay/images/menu_close.png) no-repeat center center;
+				position: absolute;
+				right: 23px;
+				top: 18px;
+				cursor: pointer;
+			}
+			.head_menu_logo {
+				width: 40px;
+				height: 24px;
+				position: absolute;
+				top: 18px;
+				left: 23px;
+				display: block;
+			}
+			.head_menu_ul_wrap {
+				width: 320px;
+				height: 100vh;
+				margin: 0 auto;
+				display: flex;
+			}
+			.head_menu_ul {
+				margin: auto;
+			}
+			.head_menu_li {
+				padding: 0 0 15px;
+				width: 100%;
+				text-align: center;
+			}
+			.head_menu_a {
+				color: #fff;
+				opacity: .5;
+				position: relative;
+			}
+			.head_menu_a:after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: -13px;
+				left: 0;
+				width: 100%;
+				opacity: 0;
+				transition: 0.3s;
+				border-bottom: 2px solid #FFCA08;
+			}
+			.head_menu_a.active, .head_menu_a:hover,
+			.active .head_menu_a {
+				opacity: 1;
+				color: #fff;
+			}
+			.head_menu_a.active:after, .head_menu_a:hover:after {
+				bottom: -3px;
+				opacity: 1;
+			}
+		}
+	</style>
+	<main class="main_content">
+<section class="home_block_1" id="tickets">
+			<div class="wraper_800">
+				<div class="home_block_1_top">
+					<div class="home_block_1_img">
+						<img src="playvr_files/bilets.png" data-animate-class="bounceIn" alt="bilets" class="animated bounceIn">
+					</div>
+					<div class="home_block_1_slogan">
+						<h1 class="home_block_1_slogan_h1"><span class="home_block_1_slogan_top">Билет для типажа людей разного:</span> <span class="home_block_1_slogan_center">такого же разного, как после машины</span> <span class="home_block_1_slogan_bottom">стиральной два носка</span></h1>
+					</div>
+				</div>
+				<div class="home_block_1_bott row">
+					 <div class="items item_1 animated bounceIn" data-animate-class="bounceIn">
+						 <span class="items_price">от 450₽</span>
+						 <p class="items_desc">Игра в любой локации в любой день. Для тех, кто никогда заранее не знает, как проведет вечер.</p>
+						 <a href="https://playvr.ru/index/pokupka-bileta-vnezapnyij/" class="items_butt">Выбрать</a>
+					 </div>
+					 <div class="items item_2 animated bounceIn" data-animate-class="bounceIn">
+						 <span class="items_price">от 230₽</span>
+						 <p class="items_desc">Выбирайте удобную локацию,а день и время могут быть любыми. Хороший выбор, если ваш маршрут всегда одинаков.</p>
+						 <a href="https://playvr.ru/index/pokupka-bileta-punktualnyij/" class="items_butt">Выбрать</a>
+					 </div>
+					 <div class="items item_3 animated bounceIn" data-animate-class="bounceIn">
+						 <span class="items_price">от 230₽</span>
+						 <p class="items_desc">Игра в конкретной локации, в точные день и время. Для самых пунктуальных и тех, кто точно знает чего хочет. </p>
+						 <a href="https://playvr.ru/index/pokupka-bileta-predskazuemyij/" class="items_butt">Выбрать</a>
+					 </div>
+				</div>
+			</div>
+		</section>
+		<!-- .home_block_1 -->
+
+		<style>
+			section.home_block_1 {
+				height: 657px;
+				width: 100%;
+				max-width: 800px;
+				margin: 0 auto;
+				z-index: 2;
+				background: url(/assets/vkpay/images/home/block_1/orang_bg.png) no-repeat center center;
+			}
+			.home_block_1_top {
+				overflow: hidden;
+				width: 100%;
+				z-index: 2;
+			}
+			.home_block_1_img {
+				float: left;
+				padding: 65px 0 0 40px;
+			}
+			.home_block_1_slogan {
+				float: right;
+				padding: 108px 45px 0 0;
+			}
+			.home_block_1_slogan_h1 {
+				font-style: normal;
+				font-weight: 800;
+				line-height: 23px;
+				font-size: 18px;
+				text-transform: uppercase;
+				color: #FFFFFF;
+			}
+			span.home_block_1_slogan_top {
+				display: block;
+				transform: rotate(-2.96deg);
+			}
+			span.home_block_1_slogan_center {
+				display: block;
+				transform: rotate(-1.39deg);
+				margin:7px 0 2px -25px;
+			}
+			span.home_block_1_slogan_bottom {
+				display: block;
+				transform: rotate(-0.41deg);
+			}
+			.home_block_1_bott {
+				margin-top: -120px;
+				padding: 0 33px;
+				z-index: 1;
+			}
+			.home_block_1_bott .items {
+				float: left;
+				width: 225px;
+				min-height: 402.79px;
+			}
+			.home_block_1_bott .items.item_1{
+				background: url(/assets/vkpay/images/home/block_1/bg_1.png) no-repeat;
+			}
+			.home_block_1_bott .items.item_2{
+				margin:0 11px 0 15px;
+				background: url(/assets/vkpay/images/home/block_1/bg_2.png) no-repeat;
+			}
+			.home_block_1_bott .items.item_3{
+				padding-top: 5.21px;
+				margin-top: -5.21px;
+				background: url(/assets/vkpay/images/home/block_1/bg_3.png) no-repeat;
+			}
+			.home_block_1_bott .items .items_price {
+				display: block;
+				text-align: center;
+				color: #fff;
+				padding-top: 318px;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: bold;
+				line-height: normal;
+				font-size: 14px;
+				text-align: center;
+				letter-spacing: 0.05em;
+				padding-bottom: 3px;
+			}
+			.home_block_1_bott .items .items_desc {
+				font-style: normal;
+				font-weight: bold;
+				line-height: 12px;
+				font-size: 10px;
+				text-align: center;
+				color: #FFFFFF;
+			}
+			.home_block_1_bott .items.item_1 .items_desc {
+				padding: 0 40px;
+			}
+			.home_block_1_bott .items.item_2 .items_desc {
+				padding: 0 24px;
+			}
+			.home_block_1_bott .items.item_3 .items_desc {
+				padding: 0 29px;
+			}
+			.home_block_1_bott .items .items_butt {
+				width: 144px;
+				height: 47px;
+				background: #FFFFFF;
+				border: 3px solid #000000;
+				border-radius: 4px;
+				font-weight: 800;
+				line-height: normal;
+				font-size: 14px;
+				text-align: center;
+				text-transform: uppercase;
+				color: #000000;
+				cursor: pointer;
+				margin: 4px auto 0;
+				display: block;
+				position: relative;
+				z-index: 1;
+				overflow: hidden;
+				text-decoration: none;
+				line-height: 47px;
+			}
+			.home_block_1_bott .items .items_butt:before{
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0;
+				height: 0;
+				z-index: -1;
+				transition: 0.5s;
+				border-radius: 50%;
+				background-color: #ffca08;
+				transform: translate(-50%, -50%);
+			}
+			.home_block_1_bott .items .items_butt:hover:before{
+				width: 400px;
+				height: 400px;
+			}
+			@media screen and (max-width:767px){
+				section.home_block_1 {
+					height: auto;
+					width: 100%;
+					overflow: hidden;
+					background: #FFCC00;
+				}
+				.home_block_1_img, .home_block_1_slogan img {
+					display: none;
+				}
+				.home_block_1_slogan {
+					padding: 18px 0 0;
+				}
+				.home_block_1_slogan_h1{
+					font-style: normal;
+					font-weight: 800;
+					line-height: 21px;
+					font-size: 17px;
+					text-align: center;
+					text-transform: uppercase;
+					color: #FFFFFF;
+					display: block;
+				}
+				span.home_block_1_slogan_top, span.home_block_1_slogan_center, span.home_block_1_slogan_bottom{
+					display: initial;
+					transform: none;
+					margin: 0;
+				}
+				.home_block_1_bott {
+					margin-top: 10px;
+					padding: 0 0 10px;
+				}
+				.home_block_1_bott .items {
+					float: none;
+					width: 311px;
+					min-height: 160px;
+					margin: 0 auto 12px;
+					overflow: hidden;
+				}
+				.home_block_1_bott .items.item_1 {
+					background: url(/assets/vkpay/images/home/block_1/bg_1_mobil.png) no-repeat;
+				}
+				.home_block_1_bott .items.item_2 {
+					margin: 0 auto 12px;
+					background: url(/assets/vkpay/images/home/block_1/bg_2_mobil.png) no-repeat;
+				}
+				.home_block_1_bott .items.item_3 {
+					background: url(/assets/vkpay/images/home/block_1/bg_3_mobil.png) no-repeat;
+				}
+				.home_block_1_bott .items .items_price {
+					font-size: 15px;
+					padding: 120px 0 0 16px;
+					float: left;
+				}
+				.home_block_1_bott .items .items_desc {
+					line-height: 14px;
+					font-size: 12px;
+					width: 204px;
+					float: right;
+					padding: 68px 0 0;
+					margin-right: 14px;
+					box-sizing: border-box;
+				}
+				.home_block_1_bott .items.item_1 .items_desc {
+					padding: 68px 14px 0;
+				}
+				.home_block_1_bott .items.item_2 .items_desc {
+					padding: 68px 0 0;
+				}
+				.home_block_1_bott .items.item_3 .items_desc {
+					padding: 64px 6px 0;
+				}
+				.home_block_1_bott .items .items_butt {
+					width: 115px;
+					height: 40px;
+					font-size: 12px;
+					margin: 12px 58px 0 0;
+					float: right;
+					line-height: 40px;
+				}
+				.home_block_1_bott .items.item_3 {
+					padding-top: 0;
+					margin-top: 0;
+				}
+			}
+		</style>
+		<section class="home_block_2">
+    <div class="wraper_800">
+        <h2 class="home_block_2_h2">Это веселее, чем клоуны. Интересней, чем карты</h2>
+        <p class="home_block_2_p">И идеально подходит практически любым компаниям.</p>
+        <div class="home_block_2_bott row">
+            <div data-animate-class="bounceIn" class="items item_1 animated bounceIn">
+                <div class="home_block_2_slaid home_block_2_slaid_left slick-initialized slick-slider"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button>
+                    <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 4537px; transform: translate3d(-349px, 0px, 0px);"><a href="https://playvr.ru/assets/img/services1/loc1/IMG_6085.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/IMG_6085.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="-1" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/DSC_8224_cor.jpg" class="home_block_2_slaid_item slick-slide slick-current slick-active" style="background-image: url(&quot;/assets/components/phpthumbof/cache/DSC_8224_cor.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="0" aria-hidden="false" tabindex="0">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/DSC_8315_cor.jpg" class="home_block_2_slaid_item slick-slide" style="background-image: url(&quot;/assets/components/phpthumbof/cache/DSC_8315_cor.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="1" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/DSC_8474_cor.jpg" class="home_block_2_slaid_item slick-slide" style="background-image: url(&quot;/assets/components/phpthumbof/cache/DSC_8474_cor.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="2" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/DSC_8749_cor.jpg" class="home_block_2_slaid_item slick-slide" style="background-image: url(&quot;/assets/components/phpthumbof/cache/DSC_8749_cor.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="3" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/vr-park-2.jpg" class="home_block_2_slaid_item slick-slide" style="background-image: url(&quot;/assets/components/phpthumbof/cache/vr-park-2.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="4" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/IMG_6085.jpg" class="home_block_2_slaid_item slick-slide" style="background-image: url(&quot;/assets/components/phpthumbof/cache/IMG_6085.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="5" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/DSC_8224_cor.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/DSC_8224_cor.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="6" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/DSC_8315_cor.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/DSC_8315_cor.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="7" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/DSC_8474_cor.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/DSC_8474_cor.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="8" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/DSC_8749_cor.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/DSC_8749_cor.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="9" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/vr-park-2.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/vr-park-2.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="10" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/img/services1/loc1/IMG_6085.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/IMG_6085.f5d0fe6973084dbfb7ef69cd8a1b9366.jpg&quot;); width: 349px;" data-slick-index="11" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a></div></div>
+                <button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button></div>
+                <p class="home_block_2_title">Вмещает до 130 гостей одновременно! Внутри — более 20 разных аттракционов</p>
+                <p class="home_block_2_add">ТРЦ "Афимолл Сити", 6-й этаж, <br>Москва, Пресненская наб., 2</p>
+                <p class="home_block_2_time">Ежедневно <br>с 10.00 до 22.00</p>
+                <button class="items_butt">Провести мероприятие</button>
+            </div>
+            <div data-animate-class="bounceIn" class="items item_2 animated bounceIn">
+                <div class="home_block_2_slaid home_block_2_slaid_right slick-initialized slick-slider"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button>
+                    <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 3839px; transform: translate3d(-349px, 0px, 0px);"><a href="https://playvr.ru/assets/images/locations/%D0%A2%D0%A0%D0%A6_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0%D0%9A%D0%B8%D0%BD%D0%BE_%D0%9B%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%A2%D0%A0%D0%A6_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0%D0%9A%D0%B8%D0%BD%D0%BE_%D0%9B%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="-1" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/images/locations/%D0%9C%D0%B5%D0%B3%D0%B0_%D0%A2%D0%B5%D0%BF%D0%BB%D1%8B%D0%B9_%D0%A1%D1%82%D0%B0%D0%BD_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide slick-current slick-active" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%9C%D0%B5%D0%B3%D0%B0_%D0%A2%D0%B5%D0%BF%D0%BB%D1%8B%D0%B9_%D0%A1%D1%82%D0%B0%D0%BD_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="0" aria-hidden="false" tabindex="0">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/images/locations/%D0%9C%D0%B5%D0%B3%D0%B0%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%9C%D0%B5%D0%B3%D0%B0%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="1" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/images/locations/%D0%A2%D0%A0%D0%9A_%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%D0%9A%D0%B8%D1%82_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%A2%D0%A0%D0%9A_%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%D0%9A%D0%B8%D1%82_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="2" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/images/locations/%D0%A2%D0%A0%D0%A6_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%9A%D0%BE%D1%81%D0%BC%D0%B8%D0%BA_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%A2%D0%A0%D0%A6_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%9A%D0%BE%D1%81%D0%BC%D0%B8%D0%BA_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="3" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/images/locations/%D0%A2%D0%A0%D0%A6_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0%D0%9A%D0%B8%D0%BD%D0%BE_%D0%9B%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%A2%D0%A0%D0%A6_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0%D0%9A%D0%B8%D0%BD%D0%BE_%D0%9B%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="4" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/images/locations/%D0%9C%D0%B5%D0%B3%D0%B0_%D0%A2%D0%B5%D0%BF%D0%BB%D1%8B%D0%B9_%D0%A1%D1%82%D0%B0%D0%BD_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%9C%D0%B5%D0%B3%D0%B0_%D0%A2%D0%B5%D0%BF%D0%BB%D1%8B%D0%B9_%D0%A1%D1%82%D0%B0%D0%BD_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="5" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/images/locations/%D0%9C%D0%B5%D0%B3%D0%B0%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%9C%D0%B5%D0%B3%D0%B0%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="6" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/images/locations/%D0%A2%D0%A0%D0%9A_%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%D0%9A%D0%B8%D1%82_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%A2%D0%A0%D0%9A_%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%D0%9A%D0%B8%D1%82_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="7" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/images/locations/%D0%A2%D0%A0%D0%A6_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%9A%D0%BE%D1%81%D0%BC%D0%B8%D0%BA_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%A2%D0%A0%D0%A6_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%9A%D0%BE%D1%81%D0%BC%D0%B8%D0%BA_%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="8" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a><a href="https://playvr.ru/assets/images/locations/%D0%A2%D0%A0%D0%A6_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0%D0%9A%D0%B8%D0%BD%D0%BE_%D0%9B%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.jpg" class="home_block_2_slaid_item slick-slide slick-cloned" style="background-image: url(&quot;/assets/components/phpthumbof/cache/%D0%A2%D0%A0%D0%A6_%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0%D0%9A%D0%B8%D0%BD%D0%BE_%D0%9B%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1.35fe0d3fc03b7d345c72a1c8498431fa.jpg&quot;); width: 349px;" data-slick-index="9" aria-hidden="true" tabindex="-1">
+    <!--<p class="home_block_2_slaid_text" >VRParkСИТИ</p>-->
+</a></div></div>
+                <button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button></div>
+                <p class="home_block_2_title">Больше 30 локаций по всей России. Просто выберите подходящую на карте.</p>
+                <div class="home_block_2_map">
+                    <a href="#" class="home_block_2_map_link">Посмотреть карту локаций</a>
+                </div>
+                <button class="items_butt">Провести мероприятие</button>
+            </div>
+        </div>
+    </div>
+</section>
+		<section class="home_block_3" id="map">
+	<div class="wraper_800">
+				<div class="home_block_3_title animated bounceIn" data-animate-class="bounceIn">
+					<img src="playvr_files/title.png" alt="title">
+				</div>
+				<div class="home_block_3_form_wrap">
+					<form class="home_block_3_form animated bounceIn" data-animate-class="bounceIn" onsubmit="return false;">
+						<h2 class="home_block_3_form_title">Карта</h2>
+						<label class="home_block_3_label labels1">
+							Страна
+							<select class="home_block_3_select" name="country">
+								<option value="" selected="selected">Выберите страну</option>
+							<option value="Соединенные Штаты Америки">США</option><option value="Россия">Россия</option><option value="Украина">undefined</option><option value="Беларусь">Беларусь</option><option value="Нидерланды">Нидерланды</option><option value="Соединенное Королевство">Великобритания</option></select>
+						</label>
+						<label class="home_block_3_label labels2">
+							Регион
+							<select class="home_block_3_select" name="city">
+								<option value="" selected="selected">Выберите город</option>
+							<option data-country="Соединенные Штаты Америки" value="Нью-Йорк">Нью-Йорк</option><option data-country="Россия" value="Москва">Москва</option><option data-country="Украина" value="Киев">undefined</option><option data-country="Беларусь" value="Минск">Минск</option><option data-country="Россия" value="Санкт-Петербург">Санкт-Петербург</option><option data-country="Россия" value="Александров">Александров</option><option data-country="Нидерланды" value="Амстердам">Амстердам</option><option data-country="Россия" value="Краснодар">Краснодар</option><option data-country="Соединенное Королевство" value="Милтон-Кинс">Милтон-Кейнис</option><option data-country="Россия" value="Пермь">Пермь</option><option data-country="Россия" value="Благовещенск">Благовещенск</option><option data-country="Россия" value="Абакан">Абакан</option></select>
+						</label>
+						<label class="home_block_3_label labels3">
+							Локация
+							<select class="home_block_3_select" name="number">
+								<option value="" selected="selected">Выберите локацию</option>
+							<option data-city="Нью-Йорк" value="L200">PlayVR New York</option><option data-city="Москва" value="L52">VRPark Сити</option><option data-city="Киев" value="L50">undefined</option><option data-city="Минск" value="L58">Галерея Минск</option><option data-city="Москва" value="L11">Химки Синема Стар</option><option data-city="Санкт-Петербург" value="L9">Галерея Формула Кино</option><option data-city="Санкт-Петербург" value="L27">Питерлэнд</option><option data-city="Александров" value="L42">Сатурн</option><option data-city="Амстердам" value="L156">PlayVR Amsterdam</option><option data-city="Москва" value="L12">Европейский Космик</option><option data-city="Краснодар" value="L16">Мегамолл</option><option data-city="Москва" value="L6">Облака Формула Кино</option><option data-city="Милтон-Кинс" value="L203">Rush VR</option><option data-city="Москва" value="L22">Вэйпарк Космик</option><option data-city="Пермь" value="L59">ТРК «Колизей-Cinema»</option><option data-city="Москва" value="L10">Европейский Формула Кино</option><option data-city="Москва" value="L7">Хорошо Формула Кино</option><option data-city="Краснодар" value="L28">Красная Площадь Монитор</option><option data-city="Санкт-Петербург" value="L25">Академ-Парк Формула Кино</option><option data-city="Москва" value="L39">Капитолий Космик</option><option data-city="Санкт-Петербург" value="L14">Заневский Каскад Формула Кино</option><option data-city="Санкт-Петербург" value="L8">Радуга Синема Парк</option><option data-city="Москва" value="L4">Теплый Стан Синема Парк</option><option data-city="Санкт-Петербург" value="L40">Сити-Молл Формула Кино</option><option data-city="Благовещенск" value="L43">Острова</option><option data-city="Абакан" value="L46">New-York</option><option data-city="Москва" value="L5">Белая Дача Космик</option></select>
+						</label>
+					</form>
+				</div>
+				<div class="home_block_3_map" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;" class="gm-style"><div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: pan-x pan-y;" tabindex="0"><div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 996; transform: matrix(1, 0, 0, 1, -172, 0);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 0px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 512px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 512px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 512px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 512px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -768px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -768px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -768px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -768px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 768px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 768px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 768px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 768px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -1024px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -1024px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -1024px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -1024px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 1024px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 1024px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 1024px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 1024px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div style="position: absolute; z-index: 996; transform: matrix(1, 0, 0, 1, -172, 0);"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 512px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 512px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 512px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 512px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -768px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -768px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -768px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -768px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 768px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 768px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 768px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 768px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -1024px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -1024px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -1024px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -1024px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1024px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1024px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1024px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1024px; top: 256px;"></div></div></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -1293px; top: 198px; z-index: 260;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -24px; top: -61px; z-index: 1;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -138px; top: -25px; z-index: 37;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -25px; top: -65px; z-index: -3;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -106px; top: -151px; z-index: -89;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -107px; top: -152px; z-index: -90;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -10px; top: -75px; z-index: -13;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -396px; top: 4px; z-index: 66;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -24px; top: -61px; z-index: 1;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -7px; top: 131px; z-index: 193;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -22px; top: -59px; z-index: 3;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -460px; top: 10px; z-index: 72;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -26px; top: -64px; z-index: -2;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: 189px; top: -109px; z-index: -47;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -24px; top: -61px; z-index: 1;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -24px; top: -62px; z-index: 0;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -7px; top: 130px; z-index: 192;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -105px; top: -153px; z-index: -91;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -24px; top: -60px; z-index: 2;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -105px; top: -151px; z-index: -89;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -106px; top: -150px; z-index: -88;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -24px; top: -59px; z-index: 3;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -106px; top: -153px; z-index: -91;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: 1000px; top: 42px; z-index: 104;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: 589px; top: -22px; z-index: 40;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; left: -21px; top: -59px; z-index: 3;"><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 996; transform: matrix(1, 0, 0, 1, -172, 0);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_009.png"></div><div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt.png"></div><div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_003.png"></div><div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_008.png"></div><div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_014.png"></div><div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_013.png"></div><div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_035.png"></div><div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_036.png"></div><div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_017.png"></div><div style="position: absolute; left: -512px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_010.png"></div><div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_023.png"></div><div style="position: absolute; left: -512px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_024.png"></div><div style="position: absolute; left: -512px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_012.png"></div><div style="position: absolute; left: -256px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_020.png"></div><div style="position: absolute; left: 0px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_018.png"></div><div style="position: absolute; left: 256px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_032.png"></div><div style="position: absolute; left: 512px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_006.png"></div><div style="position: absolute; left: 512px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_022.png"></div><div style="position: absolute; left: 512px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_034.png"></div><div style="position: absolute; left: 512px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_002.png"></div><div style="position: absolute; left: -768px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_015.png"></div><div style="position: absolute; left: -768px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_026.png"></div><div style="position: absolute; left: -768px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_016.png"></div><div style="position: absolute; left: -768px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_033.png"></div><div style="position: absolute; left: 768px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_028.png"></div><div style="position: absolute; left: 768px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_011.png"></div><div style="position: absolute; left: 768px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_007.png"></div><div style="position: absolute; left: 768px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_031.png"></div><div style="position: absolute; left: -1024px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_027.png"></div><div style="position: absolute; left: -1024px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_004.png"></div><div style="position: absolute; left: -1024px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_005.png"></div><div style="position: absolute; left: -1024px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_030.png"></div><div style="position: absolute; left: 1024px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_019.png"></div><div style="position: absolute; left: 1024px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_025.png"></div><div style="position: absolute; left: 1024px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_021.png"></div><div style="position: absolute; left: 1024px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" draggable="false" alt="" role="presentation" src="playvr_files/vt_029.png"></div></div></div></div><div style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0; transition-duration: 0.8s;" class="gm-style-pbc"><p class="gm-style-pbt">Use ctrl + scroll to zoom the map</p></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"><div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -1293px; top: 198px; z-index: 260;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -24px; top: -61px; z-index: 1;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -138px; top: -25px; z-index: 37;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -25px; top: -65px; z-index: -3;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -106px; top: -151px; z-index: -89;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -107px; top: -152px; z-index: -90;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -10px; top: -75px; z-index: -13;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -396px; top: 4px; z-index: 66;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -24px; top: -61px; z-index: 1;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -7px; top: 131px; z-index: 193;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -22px; top: -59px; z-index: 3;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -460px; top: 10px; z-index: 72;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -26px; top: -64px; z-index: -2;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: 189px; top: -109px; z-index: -47;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -24px; top: -61px; z-index: 1;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -24px; top: -62px; z-index: 0;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -7px; top: 130px; z-index: 192;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -105px; top: -153px; z-index: -91;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -24px; top: -60px; z-index: 2;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -105px; top: -151px; z-index: -89;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -106px; top: -150px; z-index: -88;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -24px; top: -59px; z-index: 3;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -106px; top: -153px; z-index: -91;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: 1000px; top: 42px; z-index: 104;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: 589px; top: -22px; z-index: 40;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div><div style="width: 46px; height: 62px; overflow: hidden; position: absolute; opacity: 0; cursor: pointer; touch-action: none; left: -21px; top: -59px; z-index: 3;" title=""><img style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; width: 46px; height: 62px; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/vr_placeholder.png" draggable="false"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div></div><iframe aria-hidden="true" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: medium none;" src="playvr_files/a.html" frameborder="0"></iframe><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a style="position: static; overflow: visible; float: none; display: inline;" target="_blank" rel="noopener" href="https://maps.google.com/maps?ll=55.784804,37.613032&amp;z=4&amp;t=m&amp;hl=en-GB&amp;gl=US&amp;mapclient=apiv3" title="Click to see this area on Google Maps"><div style="width: 66px; height: 26px; cursor: pointer;"><img style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;" alt="" src="playvr_files/google4.png" draggable="false"></div></a></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 300px; height: 180px; position: absolute; left: 810px; top: 185px;"><div style="padding: 0px 0px 10px; font-size: 16px;">Map Data</div><div style="font-size: 13px;">Map data ©2018 Google, INEGI, ORION-ME</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;" alt="" src="playvr_files/mapcnt6.png" draggable="false"></div></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 69px; bottom: 0px; width: 203px;"><div draggable="false" style="-moz-user-select: none; height: 14px; line-height: 14px;" class="gm-style-cc"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="text-decoration: none; cursor: pointer; display: none;">Map Data</a><span>Map data ©2018 Google, INEGI, ORION-ME</span></div></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Map data ©2018 Google, INEGI, ORION-ME</div></div><div class="gmnoprint gm-style-cc" style="z-index: 1000001; -moz-user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;" draggable="false"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);" href="https://www.google.com/intl/en-GB_US/help/terms_maps.html" target="_blank" rel="noopener">Terms of Use</a></div></div><button style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; margin: 10px; padding: 0px; position: absolute; cursor: pointer; -moz-user-select: none; border-radius: 2px; height: 40px; width: 40px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; overflow: hidden; top: 0px; right: 0px;" draggable="false" title="Toggle fullscreen view" aria-label="Toggle fullscreen view" type="button" class="gm-control-active gm-fullscreen-control"><img style="height: 18px; width: 18px; margin: 11px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%20018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A"><img style="height: 18px; width: 18px; margin: 11px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A"><img style="height: 18px; width: 18px; margin: 11px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A"></button><div draggable="false" style="-moz-user-select: none; height: 14px; line-height: 14px; display: none; position: absolute; right: 0px; bottom: 0px;" class="gm-style-cc"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_blank" rel="noopener" title="Report errors in the road map or imagery to Google" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;" href="https://www.google.com/maps/@55.7848044,37.6130319,4z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3">Report a map error</a></div></div><div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" style="margin: 10px; -moz-user-select: none; position: absolute; bottom: 167px; right: 40px;" draggable="false" controlwidth="40" controlheight="153"><div class="gmnoprint" style="position: absolute; left: 0px; top: 72px;" controlwidth="40" controlheight="81"><div draggable="false" style="-moz-user-select: none; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; cursor: pointer; background-color: rgb(255, 255, 255); width: 40px; height: 81px;"><button style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; display: block; border: 0px none; margin: 0px; padding: 0px; position: relative; cursor: pointer; -moz-user-select: none; overflow: hidden; width: 40px; height: 40px; top: 0px; left: 0px;" draggable="false" title="Zoom in" aria-label="Zoom in" type="button" class="gm-control-active"><img style="height: 18px; width: 18px; margin: 9px 11px 13px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2218%2C7%2011%2C7%2011%2C0%207%2C0%207%2C7%200%2C7%200%2C11%207%2C11%207%2C18%2011%2C18%2011%2C11%2018%2C11%22%2F%3E%0A%3C%2Fsvg%3E%0A"><img style="height: 18px; width: 18px; margin: 9px 11px 13px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpolygon%20fill%3D%22%23333%22%20points%3D%2218%2C7%2011%2C7%2011%2C0%207%2C0%207%2C7%200%2C7%200%2C11%207%2C11%207%2C18%2011%2C18%2011%2C11%2018%2C11%22%2F%3E%0A%3C%2Fsvg%3E%0A"><img style="height: 18px; width: 18px; margin: 9px 11px 13px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpolygon%20fill%3D%22%23111%22%20points%3D%2218%2C7%2011%2C7%2011%2C0%207%2C0%207%2C7%200%2C7%200%2C11%207%2C11%207%2C18%2011%2C18%2011%2C11%2018%2C11%22%2F%3E%0A%3C%2Fsvg%3E%0A"></button><div style="position: relative; overflow: hidden; width: 30px; height: 1px; margin: 0px 5px; background-color: rgb(230, 230, 230); top: 0px;"></div><button style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; display: block; border: 0px none; margin: 0px; padding: 0px; position: relative; cursor: pointer; -moz-user-select: none; overflow: hidden; width: 40px; height: 40px; top: 0px; left: 0px;" draggable="false" title="Zoom out" aria-label="Zoom out" type="button" class="gm-control-active"><img style="height: 18px; width: 18px; margin: 13px 11px 9px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C7h18v4H0V7z%22%2F%3E%0A%3C%2Fsvg%3E%0A"><img style="height: 18px; width: 18px; margin: 13px 11px 9px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2C7h18v4H0V7z%22%2F%3E%0A%3C%2Fsvg%3E%0A"><img style="height: 18px; width: 18px; margin: 13px 11px 9px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2C7h18v4H0V7z%22%2F%3E%0A%3C%2Fsvg%3E%0A"></button></div></div><div class="gm-svpc" style="background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; width: 40px; height: 40px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: none; position: absolute; left: 0px; top: 0px;" controlwidth="40" controlheight="40"><div style="position: absolute; left: 50%; top: 50%;"></div><div style="position: absolute; left: 50%; top: 50%;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2223%22%20height%3D%2238%22%20viewBox%3D%220%200%2023%2038%22%3E%0A%3Cpath%20d%3D%22M16.6%2C38.1h-5.5l-0.2-2.9-0.2%2C2.9h-5.5L5%2C25.3l-0.8%2C2a1.53%2C1.53%2C0%2C0%2C1-1.9.9l-1.2-.4a1.58%2C1.58%2C0%2C0%2C1-1-1.9v-0.1c0.3-.9%2C3.1-11.2%2C3.1-11.2a2.66%2C2.66%2C0%2C0%2C1%2C2.3-2l0.6-.5a6.93%2C6.93%2C0%2C0%2C1%2C4.7-12%2C6.8%2C6.8%2C0%2C0%2C1%2C4.9%2C2%2C7%2C7%2C0%2C0%2C1%2C2%2C4.9%2C6.65%2C6.65%2C0%2C0%2C1-2.2%2C5l0.7%2C0.5a2.78%2C2.78%2C0%2C0%2C1%2C2.4%2C2s2.9%2C11.2%2C2.9%2C11.3a1.53%2C1.53%2C0%2C0%2C1-.9%2C1.9l-1.3.4a1.63%2C1.63%2C0%2C0%2C1-1.9-.9l-0.7-1.8-0.1%2C12.7h0Zm-3.6-2h1.7L14.9%2C20.3l1.9-.3%2C2.4%2C6.3%2C0.3-.1c-0.2-.8-0.8-3.2-2.8-10.9a0.63%2C0.63%2C0%2C0%2C0-.6-0.5h-0.6l-1.1-.9h-1.9l-0.3-2a4.83%2C4.83%2C0%2C0%2C0%2C3.5-4.7A4.78%2C4.78%200%200%2C0%2011%202.3H10.8a4.9%2C4.9%2C0%2C0%2C0-1.4%2C9.6l-0.3%2C2h-1.9l-1%2C.9h-0.6a0.74%2C0.74%2C0%2C0%2C0-.6.5c-2%2C7.5-2.7%2C10-3%2C10.9l0.3%2C0.1%2C2.5-6.3%2C1.9%2C0.3%2C0.2%2C15.8h1.6l0.6-8.4a1.52%2C1.52%2C0%2C0%2C1%2C1.5-1.4%2C1.5%2C1.5%2C0%2C0%2C1%2C1.5%2C1.4l0.9%2C8.4h0Zm-10.9-9.6h0Zm17.5-.1h0Z%22%20style%3D%22fill%3A%23333%3Bopacity%3A0.7%3Bisolation%3Aisolate%22%2F%3E%0A%3Cpath%20d%3D%22M5.9%2C13.6l1.1-.9h7.8l1.2%2C0.9%22%20style%3D%22fill%3A%23ce592c%22%2F%3E%0A%3Cellipse%20cx%3D%2210.9%22%20cy%3D%2213.1%22%20rx%3D%222.7%22%20ry%3D%220.3%22%20style%3D%22fill%3A%23ce592c%3Bopacity%3A0.5%3Bisolation%3Aisolate%22%2F%3E%0A%3Cpath%20d%3D%22M20.6%2C26.1l-2.9-11.3a1.71%2C1.71%2C0%2C0%2C0-1.6-1.2H5.7a1.69%2C1.69%2C0%2C0%2C0-1.5%2C1.3l-3.1%2C11.3a0.61%2C0.61%2C0%2C0%2C0%2C.3.7l1.1%2C0.4a0.61%2C0.61%2C0%2C0%2C0%2C.7-0.3l2.7-6.7%2C0.2%2C16.8h3.6l0.6-9.3a0.47%2C0.47%2C0%2C0%2C1%2C.44-0.5h0.06c0.4%2C0%2C.4.2%2C0.5%2C0.5l0.6%2C9.3h3.6L15.7%2C20.3l2.5%2C6.6a0.52%2C0.52%2C0%2C0%2C0%2C.66.31h0l1.2-.4a0.57%2C0.57%2C0%2C0%2C0%2C.5-0.7h0Z%22%20style%3D%22fill%3A%23fdbf2d%22%2F%3E%0A%3Cpath%20d%3D%22M7%2C13.6l3.9%2C6.7%2C3.9-6.7%22%20style%3D%22fill%3A%23cf572e%3Bopacity%3A0.6%3Bisolation%3Aisolate%22%2F%3E%0A%3Ccircle%20cx%3D%2210.9%22%20cy%3D%227%22%20r%3D%225.9%22%20style%3D%22fill%3A%23fdbf2d%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="width: 18px; height: 30px; position: absolute; left: -9px; top: -15px; pointer-events: none;" aria-label="Street View Pegman Control"><img src="data:image/svg+xml,%3Csvg%20width%3D%2224px%22%20height%3D%2238px%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20viewBox%3D%220%200%2024%2038%22%3E%0A%3Cpath%20d%3D%22M22%2C26.6l-2.9-11.3a2.78%2C2.78%2C0%2C0%2C0-2.4-2l-0.7-.5a6.82%2C6.82%2C0%2C0%2C0%2C2.2-5%2C6.9%2C6.9%2C0%2C0%2C0-13.8%2C0%2C7%2C7%2C0%2C0%2C0%2C2.2%2C5.1l-0.6.5a2.55%2C2.55%2C0%2C0%2C0-2.3%2C2s-3%2C11.1-3%2C11.2v0.1a1.58%2C1.58%2C0%2C0%2C0%2C1%2C1.9l1.2%2C0.4a1.63%2C1.63%2C0%2C0%2C0%2C1.9-.9l0.8-2%2C0.2%2C12.8h11.3l0.2-12.6%2C0.7%2C1.8a1.54%2C1.54%2C0%2C0%2C0%2C1.5%2C1%2C1.09%2C1.09%2C0%2C0%2C0%2C.5-0.1l1.3-.4a1.85%2C1.85%2C0%2C0%2C0%2C.7-2h0Zm-1.2.9-1.2.4a0.61%2C0.61%2C0%2C0%2C1-.7-0.3l-2.5-6.6-0.2%2C16.8h-9.4L6.6%2C21l-2.7%2C6.7a0.52%2C0.52%2C0%2C0%2C1-.66.31h0l-1.1-.4a0.52%2C0.52%2C0%2C0%2C1-.31-0.66v0l3.1-11.3a1.69%2C1.69%2C0%2C0%2C1%2C1.5-1.3h0.2l1-.9h2.3a5.9%2C5.9%2C0%2C1%2C1%2C3.2%2C0h2.3l1.1%2C0.9h0.2a1.71%2C1.71%2C0%2C0%2C1%2C1.6%2C1.2l2.9%2C11.3a0.84%2C0.84%2C0%2C0%2C1-.4.7h0Z%22%20style%3D%22fill%3A%23333%3Bfill-opacity%3A0.2%22%2F%3E%22%0A%3C%2Fsvg%3E%0A%0A" style="display: none; width: 18px; height: 30px; position: absolute; left: -9px; top: -15px; pointer-events: none;" aria-label="Pegman is on top of the Map"><img style="display: none; width: 32px; height: 40px; position: absolute; left: -18px; top: -18px; pointer-events: none;" src="data:image/svg+xml,%3Csvg%20width%3D%2240px%22%20height%3D%2250px%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20viewBox%3D%220%200%2040%2050%22%3E%0A%3Cpath%20d%3D%22M34.00%2C-30.40l-2.9-11.3a2.78%2C2.78%2C0%2C0%2C0-2.4-2l-0.7-.5a6.82%2C6.82%2C0%2C0%2C0%2C2.2-5%2C6.9%2C6.9%2C0%2C0%2C0-13.8%2C0%2C7%2C7%2C0%2C0%2C0%2C2.2%2C5.1l-0.6.5a2.55%2C2.55%2C0%2C0%2C0-2.3%2C2s-3%2C11.1-3%2C11.2v0.1a1.58%2C1.58%2C0%2C0%2C0%2C1%2C1.9l1.2%2C0.4a1.63%2C1.63%2C0%2C0%2C0%2C1.9-.9l0.8-2%2C0.2%2C12.8h11.3l0.2-12.6%2C0.7%2C1.8a1.54%2C1.54%2C0%2C0%2C0%2C1.5%2C1%2C1.09%2C1.09%2C0%2C0%2C0%2C.5-0.1l1.3-.4a1.85%2C1.85%2C0%2C0%2C0%2C.7-2h0Zm-1.2.9-1.2.4a0.61%2C0.61%2C0%2C0%2C1-.7-0.3l-2.5-6.6-0.2%2C16.8h-9.4L18.60%2C-36.00l-2.7%2C6.7a0.52%2C0.52%2C0%2C0%2C1-.66.31h0l-1.1-.4a0.52%2C0.52%2C0%2C0%2C1-.31-0.66v0l3.1-11.3a1.69%2C1.69%2C0%2C0%2C1%2C1.5-1.3h0.2l1-.9h2.3a5.9%2C5.9%2C0%2C1%2C1%2C3.2%2C0h2.3l1.1%2C0.9h0.2a1.71%2C1.71%2C0%2C0%2C1%2C1.6%2C1.2l2.9%2C11.3a0.84%2C0.84%2C0%2C0%2C1-.4.7h0Zm1.2%2C59.1-2.9-11.3a2.78%2C2.78%2C0%2C0%2C0-2.4-2l-0.7-.5a6.82%2C6.82%2C0%2C0%2C0%2C2.2-5%2C6.9%2C6.9%2C0%2C0%2C0-13.8%2C0%2C7%2C7%2C0%2C0%2C0%2C2.2%2C5.1l-0.6.5a2.55%2C2.55%2C0%2C0%2C0-2.3%2C2s-3%2C11.1-3%2C11.2v0.1a1.58%2C1.58%2C0%2C0%2C0%2C1%2C1.9l1.2%2C0.4a1.63%2C1.63%2C0%2C0%2C0%2C1.9-.9l0.8-2%2C0.2%2C12.8h11.3l0.2-12.6%2C0.7%2C1.8a1.54%2C1.54%2C0%2C0%2C0%2C1.5%2C1%2C1.09%2C1.09%2C0%2C0%2C0%2C.5-0.1l1.3-.4a1.85%2C1.85%2C0%2C0%2C0%2C.7-2h0Zm-1.2.9-1.2.4a0.61%2C0.61%2C0%2C0%2C1-.7-0.3l-2.5-6.6-0.2%2C16.8h-9.4L18.60%2C24.00l-2.7%2C6.7a0.52%2C0.52%2C0%2C0%2C1-.66.31h0l-1.1-.4a0.52%2C0.52%2C0%2C0%2C1-.31-0.66v0l3.1-11.3a1.69%2C1.69%2C0%2C0%2C1%2C1.5-1.3h0.2l1-.9h2.3a5.9%2C5.9%2C0%2C1%2C1%2C3.2%2C0h2.3l1.1%2C0.9h0.2a1.71%2C1.71%2C0%2C0%2C1%2C1.6%2C1.2l2.9%2C11.3a0.84%2C0.84%2C0%2C0%2C1-.4.7h0Z%22%20style%3D%22fill%3A%23333%3Bfill-opacity%3A0.2%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M15.40%2C38.80h-4a1.64%2C1.64%2C0%2C0%2C1-1.4-1.1l-3.1-8a0.9%2C0.9%2C0%2C0%2C1-.5.1l-1.4.1a1.62%2C1.62%2C0%2C0%2C1-1.6-1.4l-1.1-13.1%2C1.6-1.3a6.87%2C6.87%2C0%2C0%2C1-3-4.6A7.14%2C7.14%200%200%2C1%202%204a7.6%2C7.6%2C0%2C0%2C1%2C4.7-3.1%2C7.14%2C7.14%2C0%2C0%2C1%2C5.5%2C1.1%2C7.28%2C7.28%2C0%2C0%2C1%2C2.3%2C9.6l2.1-.1%2C0.1%2C1c0%2C0.2.1%2C0.5%2C0.1%2C0.8a2.41%2C2.41%2C0%2C0%2C1%2C1%2C1s1.9%2C3.2%2C2.8%2C4.9c0.7%2C1.2%2C2.1%2C4.2%2C2.8%2C5.9a2.1%2C2.1%2C0%2C0%2C1-.8%2C2.6l-0.6.4a1.63%2C1.63%2C0%2C0%2C1-1.5.2l-0.6-.3a8.93%2C8.93%2C0%2C0%2C0%2C.5%2C1.3%2C7.91%2C7.91%2C0%2C0%2C0%2C1.8%2C2.6l0.6%2C0.3v4.6l-4.5-.1a7.32%2C7.32%2C0%2C0%2C1-2.5-1.5l-0.4%2C3.6h0Zm-10-19.2%2C3.5%2C9.8%2C2.9%2C7.5h1.6V35l-1.9-9.4%2C3.1%2C5.4a8.24%2C8.24%2C0%2C0%2C0%2C3.8%2C3.8h2.1v-1.4a14%2C14%2C0%2C0%2C1-2.2-3.1%2C44.55%2C44.55%2C0%2C0%2C1-2.2-8l-1.3-6.3%2C3.2%2C5.6c0.6%2C1.1%2C2.1%2C3.6%2C2.8%2C4.9l0.6-.4c-0.8-1.6-2.1-4.6-2.8-5.8-0.9-1.7-2.8-4.9-2.8-4.9a0.54%2C0.54%2C0%2C0%2C0-.4-0.3l-0.7-.1-0.1-.7a4.33%2C4.33%2C0%2C0%2C0-.1-0.5l-5.3.3%2C2.2-1.9a4.3%2C4.3%2C0%2C0%2C0%2C.9-1%2C5.17%2C5.17%2C0%2C0%2C0%2C.8-4%2C5.67%2C5.67%2C0%2C0%2C0-2.2-3.4%2C5.09%2C5.09%2C0%2C0%2C0-4-.8%2C5.67%2C5.67%2C0%2C0%2C0-3.4%2C2.2%2C5.17%2C5.17%2C0%2C0%2C0-.8%2C4%2C5.67%2C5.67%2C0%2C0%2C0%2C2.2%2C3.4%2C3.13%2C3.13%2C0%2C0%2C0%2C1%2C.5l1.6%2C0.6-3.2%2C2.6%2C1%2C11.5h0.4l-0.3-8.2h0Z%22%20style%3D%22fill%3A%23333%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M3.35%2C15.90l1.1%2C12.5a0.39%2C0.39%2C0%2C0%2C0%2C.36.42l0.14%2C0%2C1.4-.1a0.66%2C0.66%2C0%2C0%2C0%2C.5-0.4l-0.2-3.8-3.3-8.6h0Z%22%20style%3D%22fill%3A%23fdbf2d%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M5.20%2C28.80l1.1-.1a0.66%2C0.66%2C0%2C0%2C0%2C.5-0.4l-0.2-3.8-1.2-3.1Z%22%20style%3D%22fill%3A%23ce592b%3Bfill-opacity%3A0.25%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M21.40%2C35.70l-3.8-1.2-2.7-7.8L12.00%2C15.5l3.4-2.9c0.2%2C2.4%2C2.2%2C14.1%2C3.7%2C17.1%2C0%2C0%2C1.3%2C2.6%2C2.3%2C3.1v2.9m-8.4-8.1-2-.3%2C2.5%2C10.1%2C0.9%2C0.4v-2.9%22%20style%3D%22fill%3A%23e5892b%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M17.80%2C25.40c-0.4-1.5-.7-3.1-1.1-4.8-0.1-.4-0.1-0.7-0.2-1.1l-1.1-2-1.7-1.6s0.9%2C5%2C2.4%2C7.1a19.12%2C19.12%2C0%2C0%2C0%2C1.7%2C2.4h0Z%22%20style%3D%22fill%3A%23cf572e%3Bopacity%3A0.6%3Bisolation%3Aisolate%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M14.40%2C37.80h-3a0.43%2C0.43%2C0%2C0%2C1-.4-0.4l-3-7.8-1.7-4.8-3-9%2C8.9-.4s2.9%2C11.3%2C4.3%2C14.4c1.9%2C4.1%2C3.1%2C4.7%2C5%2C5.8h-3.2s-4.1-1.2-5.9-7.7a0.59%2C0.59%2C0%2C0%2C0-.6-0.4%2C0.62%2C0.62%2C0%2C0%2C0-.3.7s0.5%2C2.4.9%2C3.6a34.87%2C34.87%2C0%2C0%2C0%2C2%2C6h0Z%22%20style%3D%22fill%3A%23fdbf2d%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M15.40%2C12.70l-3.3%2C2.9-8.9.4%2C3.3-2.7%22%20style%3D%22fill%3A%23ce592b%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M9.10%2C21.10l1.4-6.2-5.9.5%22%20style%3D%22fill%3A%23cf572e%3Bopacity%3A0.6%3Bisolation%3Aisolate%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M12.00%2C13.5a4.75%2C4.75%2C0%2C0%2C1-2.6%2C1.1c-1.5.3-2.9%2C0.2-2.9%2C0s1.1-.6%2C2.7-1%22%20style%3D%22fill%3A%23bb3d19%22%3E%3C%2Fpath%3E%0A%3Ccircle%20cx%3D%227.92%22%20cy%3D%228.19%22%20r%3D%226.3%22%20style%3D%22fill%3A%23fdbf2d%22%3E%3C%2Fcircle%3E%0A%3Cpath%20d%3D%22M4.70%2C13.60a6.21%2C6.21%2C0%2C0%2C0%2C8.4-1.9v-0.1a8.89%2C8.89%2C0%2C0%2C1-8.4%2C2h0Z%22%20style%3D%22fill%3A%23ce592b%3Bfill-opacity%3A0.25%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M21.20%2C27.20l0.6-.4a1.09%2C1.09%2C0%2C0%2C0%2C.4-1.3c-0.7-1.5-2.1-4.6-2.8-5.8-0.9-1.7-2.8-4.9-2.8-4.9a1.6%2C1.6%2C0%2C0%2C0-2.17-.65l-0.23.15a1.68%2C1.68%2C0%2C0%2C0-.4%2C2.1s2.3%2C3.9%2C3.1%2C5.3c0.6%2C1%2C2.1%2C3.7%2C2.9%2C5.1a0.94%2C0.94%2C0%2C0%2C0%2C1.24.49l0.16-.09h0Z%22%20style%3D%22fill%3A%23fdbf2d%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M19.40%2C19.80c-0.9-1.7-2.8-4.9-2.8-4.9a1.6%2C1.6%2C0%2C0%2C0-2.17-.65l-0.23.15-0.3.3c1.1%2C1.5%2C2.9%2C3.8%2C3.9%2C5.4%2C1.1%2C1.8%2C2.9%2C5%2C3.8%2C6.7l0.1-.1a1.09%2C1.09%2C0%2C0%2C0%2C.4-1.3%2C57.67%2C57.67%2C0%2C0%2C0-2.7-5.6h0Z%22%20style%3D%22fill%3A%23ce592b%3Bfill-opacity%3A0.25%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E%0A" aria-label="Street View Pegman Control"></div></div><div class="gmnoprint" controlwidth="40" controlheight="40" style="display: none; position: absolute;"><div style="width: 40px; height: 40px;"><button style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; display: none; border: 0px none; margin: 0px 0px 32px; padding: 0px; position: relative; cursor: pointer; -moz-user-select: none; width: 40px; height: 40px; top: 0px; left: 0px; overflow: hidden; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px;" draggable="false" title="Rotate map 90 degrees" aria-label="Rotate map 90 degrees" type="button" class="gm-control-active"><img style="height: 28px; width: 28px; margin: 6px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20viewBox%3D%220%200%2024%2022%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20fill-rule%3D%22evenodd%22%20d%3D%22M20%2010c0-5.52-4.48-10-10-10s-10%204.48-10%2010v5h5v-5c0-2.76%202.24-5%205-5s5%202.24%205%205v5h-4l6.5%207%206.5-7h-4v-5z%22%20clip-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A"><img style="height: 28px; width: 28px; margin: 6px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20viewBox%3D%220%200%2024%2022%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20fill-rule%3D%22evenodd%22%20d%3D%22M20%2010c0-5.52-4.48-10-10-10s-10%204.48-10%2010v5h5v-5c0-2.76%202.24-5%205-5s5%202.24%205%205v5h-4l6.5%207%206.5-7h-4v-5z%22%20clip-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A"><img style="height: 28px; width: 28px; margin: 6px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20viewBox%3D%220%200%2024%2022%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20fill-rule%3D%22evenodd%22%20d%3D%22M20%2010c0-5.52-4.48-10-10-10s-10%204.48-10%2010v5h5v-5c0-2.76%202.24-5%205-5s5%202.24%205%205v5h-4l6.5%207%206.5-7h-4v-5z%22%20clip-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A"></button><button style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; display: block; border: 0px none; margin: 0px; padding: 0px; position: relative; cursor: pointer; -moz-user-select: none; width: 40px; height: 40px; top: 0px; left: 0px; overflow: hidden; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px;" draggable="false" title="Tilt map" aria-label="Tilt map" type="button" class="gm-tilt gm-control-active"><img style="width: 18px; height: 16px; margin: 12px 11px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2018%2016%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C16h8V9H0V16z%20M10%2C16h8V9h-8V16z%20M0%2C7h8V0H0V7z%20M10%2C0v7h8V0H10z%22%2F%3E%0A%3C%2Fsvg%3E%0A"><img style="width: 18px; height: 16px; margin: 12px 11px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2018%2016%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2C16h8V9H0V16z%20M10%2C16h8V9h-8V16z%20M0%2C7h8V0H0V7z%20M10%2C0v7h8V0H10z%22%2F%3E%0A%3C%2Fsvg%3E%0A"><img style="width: 18px; height: 16px; margin: 12px 11px;" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2018%2016%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2C16h8V9H0V16z%20M10%2C16h8V9h-8V16z%20M0%2C7h8V0H0V7z%20M10%2C0v7h8V0H10z%22%2F%3E%0A%3C%2Fsvg%3E%0A"></button></div></div></div><div class="gmnoprint" style="margin: 10px; z-index: 0; position: absolute; cursor: pointer; left: 0px; top: 0px;"><div style="float: left; position: relative;" class="gm-style-mtc"><div role="button" tabindex="0" title="Show street map" aria-label="Show street map" aria-pressed="true" style="direction: ltr; overflow: hidden; text-align: center; height: 40px; display: table-cell; vertical-align: middle; position: relative; color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -moz-user-select: none; font-size: 18px; background-color: rgb(255, 255, 255); padding: 0px 17px; border-bottom-left-radius: 2px; border-top-left-radius: 2px; background-clip: padding-box; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; min-width: 36px; font-weight: 500;" draggable="false">Map</div><div style="background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; position: absolute; left: 0px; top: 40px; text-align: left; display: none;"><div style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -moz-user-select: none; font-size: 18px; background-color: rgb(255, 255, 255); padding: 6px 8px 6px 6px; direction: ltr; text-align: left; white-space: nowrap;" draggable="false" title="Show street map with terrain"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img style="position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 68px; height: 67px;" alt="" src="playvr_files/imgs8.png" draggable="false"></div></span><label style="vertical-align: middle; cursor: pointer;">Terrain</label></div></div></div><div style="float: left; position: relative;" class="gm-style-mtc"><div role="button" tabindex="0" title="Show satellite imagery" aria-label="Show satellite imagery" aria-pressed="false" style="direction: ltr; overflow: hidden; text-align: center; height: 40px; display: table-cell; vertical-align: middle; position: relative; color: rgb(86, 86, 86); font-family: Roboto, Arial, sans-serif; -moz-user-select: none; font-size: 18px; background-color: rgb(255, 255, 255); padding: 0px 17px; border-bottom-right-radius: 2px; border-top-right-radius: 2px; background-clip: padding-box; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; min-width: 68px; border-left: 0px none;" draggable="false">Satellite</div><div style="background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; position: absolute; right: 0px; top: 40px; text-align: left; display: none;"><div style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -moz-user-select: none; font-size: 18px; background-color: rgb(255, 255, 255); padding: 6px 8px 6px 6px; direction: ltr; text-align: left; white-space: nowrap;" draggable="false" title="Show imagery with street names"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img style="position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 68px; height: 67px;" alt="" src="playvr_files/imgs8.png" draggable="false"></div></span><label style="vertical-align: middle; cursor: pointer;">Labels</label></div></div></div></div></div></div></div>
+			</div>
+		</section>
+<script>
+    jQuery(document).ready(function() {
+    var locations_pages_links = {
+        'L203':'https://playvr.ru/spisok-lokaczij/rush-vr','L59':'https://playvr.ru/spisok-lokaczij/trk-«kolizej-cinema»','L58':'https://playvr.ru/spisok-lokaczij/savchik-minsk','L40':'https://playvr.ru/spisok-lokaczij/siti-moll-formula-kino','L7':'https://playvr.ru/spisok-lokaczij/xorosho-formula-kino','L6':'https://playvr.ru/spisok-lokaczij/oblaka-formula-kino','L4':'https://playvr.ru/spisok-lokaczij/teplyij-stan-sinema-park','L5':'https://playvr.ru/spisok-lokaczij/belaya-dacha-kosmik','L156':'https://playvr.ru/spisok-lokaczij/playvr-amsterdam','L46':'https://playvr.ru/spisok-lokaczij/nyu-jork','L200':'https://playvr.ru/spisok-lokaczij/playvr-new-york','L52':'https://playvr.ru/spisok-lokaczij/vrpark-siti','L42':'https://playvr.ru/spisok-lokaczij/saturn','L43':'https://playvr.ru/spisok-lokaczij/ostrova','L39':'https://playvr.ru/spisok-lokaczij/kapitolij-kosmik','L45':'https://playvr.ru/spisok-lokaczij/gagarinskij','L33':'https://playvr.ru/spisok-lokaczij/kalejdoskop-kinosfera','L32':'https://playvr.ru/spisok-lokaczij/krasnyij-kit','L22':'https://playvr.ru/spisok-lokaczij/vejpark-kosmik','L12':'https://playvr.ru/spisok-lokaczij/evropejskij-kosmik','L11':'https://playvr.ru/spisok-lokaczij/ximki-sinema-star','L10':'https://playvr.ru/spisok-lokaczij/evropejskij-formula-kino','L16':'https://playvr.ru/spisok-lokaczij/megamoll','L28':'https://playvr.ru/spisok-lokaczij/krasnaya-ploshhad-monitor','L27':'https://playvr.ru/spisok-lokaczij/piterlend','L25':'https://playvr.ru/spisok-lokaczij/akadem-park-formula-kino','L14':'https://playvr.ru/spisok-lokaczij/zanevskij-kaskad-formula-kino','L9':'https://playvr.ru/spisok-lokaczij/129-l09-/-sankt-peterburg-/-tcz-galereya-/-formula-kino','L8':'https://playvr.ru/spisok-lokaczij/128-raduga-sinema-park'
+    };
+    
+    var $container = $('#map .home_block_3_map'),
+        places = [];
+    if($container.length) $.post('/assets/ajax.php', {
+            request: 'map_places'
+    }, function(data) {
+        var map = new google.maps.Map($container[0], {
+            zoom: 4,
+            center: {lat: 55.7848044, lng: 37.6130319}
+        });
+        var places = [];
+        if(typeof data == 'string') data = JSON.parse(data);
+        var $selects = {
+            country: $('#map select[name="country"]'),
+            city: $('#map select[name="city"]'),
+            number: $('#map select[name="number"]')
+        }, selects_value = {
+            country: $selects.country.val(),
+            city: $selects.city.val(),
+            number: $selects.number.val()
+        };
+        /**/
+        function show_filtered_section(selects_value) {
+            var new_center = {
+                lat: 0,
+                lng: 0
+            }, selected_places = [], zoom = 4;
+            //if(selects_value.number || selects_value.city || selects_value.country) {
+                places.forEach(function(item, indx) {
+                    item.info_wind_obj.close();
+                    item.marker_obj.setIcon('//' + location.hostname + '/assets/img/map/vr_placeholder.png');
+                    if((item.number == selects_value.number) || (!selects_value.number && item.city == selects_value.city) 
+                        || (!selects_value.number && !selects_value.city && item.country == selects_value.country)) {
+                        new_center.lat += Number(item.coords.lat);
+                        new_center.lng += Number(item.coords.lng);
+                        selected_places.push(item);
+                        item.marker_obj.setAnimation(google.maps.Animation.BOUNCE);
+                        item.marker_obj.setIcon('//' + location.hostname + '/assets/img/map/vr_placeholder-active.png');
+                        setTimeout(function() {places[indx].marker_obj.setAnimation(null);}, 1000);
+                    }
+                });
+            //}
+            //console.log(selected_places);
+            if(selected_places.length) {
+                new_center.lat = new_center.lat/selected_places.length;
+                new_center.lng = new_center.lng/selected_places.length;
+                if(selects_value.number) zoom = 14;
+                else if(selects_value.city) zoom = 9;
+            } else {
+                new_center = {lat: 55.7848044, lng: 37.6130319};
+            }
+            map.panTo(new_center);
+            map.setZoom(zoom);
+        }
+        $selects.country.change(function() {
+            var country = $(this).val();
+            if(country) {
+                if(selects_value.country != country) {
+                    $selects.city.val('');
+                    $selects.number.val('');
+                    selects_value.country = country;
+                    selects_value.city = '';
+                    selects_value.number = '';
+                }
+                var citys = [];
+                $selects.city.find('option:not([value=""])').each(function() {
+                    var $loc_this = $(this);
+                    if($loc_this.data('country') != country) {
+                        $loc_this.attr('disabled', 'disabled');
+                    } else {
+                        $loc_this.removeAttr('disabled');
+                        citys.push($loc_this.val());
+                    }
+                });
+                $selects.number.find('option:not([value=""])').each(function() {
+                    var $loc_this = $(this);
+                    if(citys.indexOf($loc_this.data('city')) == -1) {
+                        $loc_this.attr('disabled', 'disabled');
+                    } else {
+                        $loc_this.removeAttr('disabled');
+                    }
+                });
+            } else {
+                $selects.city.add($selects.number).find('option:not([value=""])').removeAttr('disabled');
+                
+            }
+            show_filtered_section(selects_value);
+        });
+        $selects.city.change(function() {
+            var city = $(this).val();
+            if(city) {
+                if(selects_value.city != city) {
+                    $selects.number.val('');
+                    selects_value.city = city;
+                    selects_value.number = '';
+                }
+                $selects.number.find('option:not([value=""])').each(function() {
+                    var $loc_this = $(this);
+                    if($loc_this.data('city') != city) {
+                        $loc_this.attr('disabled', 'disabled');
+                    } else {
+                        $loc_this.removeAttr('disabled');
+                    }
+                });
+            } else {
+                $selects.city.add($selects.number).find('option:not([value=""])').removeAttr('disabled');
+            }
+            show_filtered_section(selects_value);
+        });
+        $selects.number.change(function() {
+            selects_value.number = $(this).val();
+            show_filtered_section(selects_value);
+        });
+        /**/
+        data.forEach(function(item, key) {
+            if(!$selects.country.find('[value="'+item.country+'"]').length) $selects.country.append('<option value="'+item.country+'">'+item.json_parameters.country_ru+'</option>');
+            if(!$selects.city.find('[value="'+item.city+'"]').length) $selects.city.append('<option data-country="'+item.country+'" value="'+item.city+'">'+item.json_parameters.city_ru+'</option>');
+            if(!$selects.number.find('[value="'+item.number+'"]').length) $selects.number.append('<option data-city="'+item.city+'" value="'+item.number+'">'+item.json_parameters.name_ru+'</option>');
+        
+            var work_time = '',
+    week_days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+for(var key2 in data[key].work_time) {
+    work_time += week_days[Number(key2) - 1] + ' - '+data[key].work_time[key2].open+' - '+data[key].work_time[key2].close + "\n";
+}
+////////////
+var map_info_window_content = '';
+
+///B2B locations
+if(data[key].json_parameters.business_mode == 'B2B') {
+    map_info_window_content = '<div class="wind_content_wrap b2b" data-location_number="'+data[key].number+'">' +
+        '<div class="map_wind_row6">Данная локация<br>находится в офисе<br>компании Neurogaming<hr></div>' +
+        '<div class="map_wind_row7">Для того, что бы попробывать наши <span class="white-space: nowrap;">VR-игры</span> нужно записатся</div>' +
+        '<div class="map_wind_row5">' +
+        '<a href="#" data-add_fields=\'{"location_number":"'+data[key].number+'"}\' data-get_popup="popup_business_appointment_schedule" class="yellow-button">записатся на показ</a>' +
+        '</div>'+
+        '</div>';
+} else {//B2C
+    map_info_window_content = '<div data-location_number="'+data[key].number+'" class="wind_content_wrap"><div class="map_wind_row1">'+
+        '<a href="'+locations_pages_links[data[key].number]+'">' +
+        '<img class="icon" src="/assets/img/map_info_window/icon1.png">'+data[key].json_parameters.address_ru+'</a></div>' +
+        '<div class="map_wind_row2">' +
+        '<img class="icon" src="/assets/img/map_info_window/icon2.png">'+data[key].json_parameters.description_ru+'</div><div class="map_wind_row2">' +
+        '<img class="icon" src="/assets/img/map_info_window/icon3.png">' +
+        'Макс. кол-во игроков - '+data[key].number_of_players+'</div>' +
+        '<div class="map_wind_row3"><div class="sub_map_wind_row1">' +
+        '<img class="icon" src="/assets/img/map_info_window/icon4.png">' +
+        'График работы' +
+        '</div><pre class="sub_map_wind_row2">'+work_time+'</pre></div>' +
+        '<a class="map_wind_row4" href="tel: 8 (495) 369-21-81"><img class="icon" src="/assets/img/map_info_window/icon5.png">8 (495) 369-21-81</a>' +
+        
+        '<div class="map_wind_row5">' +
+        '<a href="https://playvr.ru/index/pokupka-bileta-predskazuemyij/" class="yellow-button write_location_number">забронировать игру</a>' +
+        '</div>'+
+        '</div>';
+}
+                        
+            var info_wind_obj = new google.maps.InfoWindow({
+                maxWidth: 300,
+                content: map_info_window_content
+            });
+            var marker_obj = new google.maps.Marker({
+                map: map,
+                position: item.coords,
+                title: item.description,
+                icon: {
+                    url: '//' + location.hostname + '/assets/img/map/vr_placeholder.png'
+                },
+                data: {
+                    indx: places.length
+                }
+            });
+            
+            marker_obj.addListener('click', function () {
+                var pt = {
+                    lat: this.position.lat(),
+                    lng: this.position.lng()
+                }
+                pt.lat = pt.lat + 0.1;
+                map.panTo(pt);
+                map.setZoom(12);
+                this.setAnimation(google.maps.Animation.BOUNCE);
+                var marker = this;
+                setTimeout(function() {marker.setAnimation(null);}, 1000);
+                places.forEach(function(item) {
+                    if(item.marker_obj) item.marker_obj.setIcon('//' + location.hostname + '/assets/img/map/vr_placeholder.png');
+                });
+                this.setIcon('//' + location.hostname + '/assets/img/map/vr_placeholder-active.png');
+                //
+                for (var key in places) {
+                    places[key].info_wind_obj.close();
+                }
+                places[this.data.indx].info_wind_obj.open(map, this);
+                
+                setTimeout(function() {
+                    $('.gm-style-iw').parent().addClass('map_info_window').children('div:first').children('div:nth-child(4), div:nth-child(2)').remove();
+                }, 0);
+            });
+            item.info_wind_obj = info_wind_obj;
+            item.marker_obj = marker_obj;
+            places.push(item);
+        });
+        $(document).on('click', '.gm-style-iw + div', function() {
+            for (var key in places) {
+                places[key].wind.close();
+            }
+        });
+        $(document).on('click', '.map_info_window .map_wind_row3 .sub_map_wind_row1', function() {
+            $(this).closest('.map_wind_row3').toggleClass('opened');
+        });
+    });
+});
+</script>
+<style>
+    html .home_block_3_map {
+        width: 100vw;
+        margin: -50px calc((100% - 100vw) / 2) 0;
+        height: 550px;
+    }
+</style>
+</main>
+<script src="playvr_files/js"></script>
+
+<link rel="stylesheet" href="playvr_files/styles_892afe229a.css" type="text/css">
+<script type="text/javascript" src="playvr_files/scripts_c052f760b6.js"></script>
+<script>
+jQuery(document).ready(function ($) {
+    jQuery('.home_block_2_slaid_left, .home_block_2_slaid_right').slick();
+    /*$('body').mCustomScrollbar({
+        theme: 'dark'
+    });*/
+});
+</script>
+<style>
+    /*html {
+        max-height: 100vw;
+    }
+    html, body {
+        overflow: auto;
+    }*/
+    body {
+        /*max-height: 100vh;*/
+        opacity: 1;
+    }
+    html .mCSB_inside>.mCSB_container {
+        margin-right: 0;
+    }
+    html .mCSB_scrollTools {
+        z-index: 10
+    }
+</style>
+
+</body></html>

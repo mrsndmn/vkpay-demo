@@ -25,6 +25,8 @@ const MERCH_ID = process.env.MERCH_ID;
 const MERCH_PRIVATE_KEY = process.env.MERCH_PRIVATE_KEY;
 const APP_SECRET_KET = process.env.APP_SECRET_KET;
 
+const DMR_API_VERSION = '2-03'
+
 let last_order_id = process.env.LAST_ORDER_ID || 1;
 
 if (!MERCH_ID || !MERCH_PRIVATE_KEY || !APP_SECRET_KET) {
@@ -35,6 +37,7 @@ if (!MERCH_ID || !MERCH_PRIVATE_KEY || !APP_SECRET_KET) {
 console.log("MERCH_ID " + MERCH_ID +
   "\nMERCH_PRIVATE_KEY " + MERCH_PRIVATE_KEY +
   "\nAPP_SECRET_KET " + APP_SECRET_KET +
+  // "\nAPP_SECRET_KET " + APP +
   "\nlast_order_id=" + last_order_id);
 
 
@@ -61,7 +64,7 @@ function dummySaveLastOrderID(last_order_id) {
 
 
 app.get("/", function(req, res) {
-  res.sendFile("site_button.html", { root: path.join(__dirname, '../../public') });
+  res.sendFile("playvr.html", { root: path.join(__dirname, '../../public') });
 })
 
 ////// Getting params for payment window
@@ -82,11 +85,11 @@ app.get('/app_params', function (req, res) {
   merch_data_base64 = base64.encode(JSON.stringify(merch_data))
 
   let data = {
-    order_id: merch_data.order_id,
-    ts: merch_data.ts,
-    currency: "RUB",
-    merchant_data: merch_data_base64,
-    merchant_sign: sha1(merch_data_base64 + MERCH_PRIVATE_KEY),
+    // order_id: merch_data.order_id, // not required
+    currency: "RUB",//   not required
+    // merchant_data: "",  //merch_data_base64,
+    // merchant_sign: ""   //sha1(merch_data_base64 + MERCH_PRIVATE_KEY),
+    // ts: merch_data.ts, // required only for cashbacks
     event_name: 123123123123 // you can put here any data you want
   };
 
@@ -155,7 +158,7 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
   }
 
   let sign = sha1(base64.encode(JSON.stringify(data) + MERCH_PRIVATE_KEY))
-  let notification_resp = { data: data, signature: sign, version: "2-02" };
+  let notification_resp = { data: data, signature: sign, version: DMR_API_VERSION };
   console.log("notification_resp", JSON.stringify(notification_resp,null,2)); // responsing with json
   res.json( notification_resp );
 
@@ -171,7 +174,7 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
 ////
 
 const DMR_API_URL = 'https://api-spare.money.mail.ru';
-const DMR_REFUND_URL = '/money/2-02/transaction/refund'; // its important thet theere is no slash at the end
+const DMR_REFUND_URL = '/money/' + DMR_API_VERSION + '/transaction/refund'; // its important thet theere is no slash at the end
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 app.post("/refund", (req, res) => {
