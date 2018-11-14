@@ -69,12 +69,14 @@ app.get('/app_params', function (req, res) {
     order_id: ++last_order_id,
     currency: "RUB",
     ts: (Date.now() / 1000 | 0),
+    cashback: {pay_time: (Date.now() / 1000 | 0 + 120), amount_percent: 30}
   };
 
   dummySaveLastOrderID(last_order_id);
 
   merch_data_base64 = base64.encode(JSON.stringify(merch_data))
   let data = {
+    cashback: merch_data.cashback,
     order_id: merch_data.order_id,
     ts: merch_data.ts,
     currency: "RUB",
@@ -91,7 +93,7 @@ app.get('/app_params', function (req, res) {
     merchant_id: MERCH_ID,
     version: 2
   }
-
+  console.log("pay_window_params:", pay_window_params);
   let params = ""
   Object.keys(pay_window_params).sort((a, b) => a > b).forEach(
           function (key) { if (key != "action") params += key + "=" + ( key == "data"? stringify( pay_window_params[key] ) : pay_window_params[key]  ) }
