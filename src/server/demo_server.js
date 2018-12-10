@@ -69,14 +69,14 @@ app.get('/app_params', function (req, res) {
     order_id: ++last_order_id,
     currency: "RUB",
     ts: (Date.now() / 1000 | 0),
-    cashback: {pay_time: (Date.now() / 1000 | 0 + 120), amount_percent: 30}
+//    cashback: {pay_time: (Date.now() / 1000 | 0 + 200), amount_percent: 30}
   };
 
   dummySaveLastOrderID(last_order_id);
 
   merch_data_base64 = base64.encode(JSON.stringify(merch_data))
   let data = {
-    cashback: merch_data.cashback,
+//    cashback: merch_data.cashback,
     order_id: merch_data.order_id,
     ts: merch_data.ts,
     currency: "RUB",
@@ -86,6 +86,7 @@ app.get('/app_params', function (req, res) {
   };
 
   let pay_window_params = {
+//  ordinance: "qweqwe",
     amount: amount,
     data: data,
     description: "Оплата заказа",
@@ -172,7 +173,7 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
 ////
 
 const DMR_API_URL = 'https://api-spare.money.mail.ru';
-const DMR_REFUND_URL = '/money/2-02/transaction/refund'; // its important thet theere is no slash at the end
+const DMR_REFUND_URL = '/money/2-04/transaction/refund'; // its important thet theere is no slash at the end
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 app.post("/refund", (req, res) => {
@@ -181,12 +182,13 @@ app.post("/refund", (req, res) => {
   let data = {
     body: {
       transaction_id: req.query["txn_id"],
-      reason: req.query["reason"] || "Any reason"
+      reason: req.query["reason"] || '\\u0412\\u043e'
 //      amount: 49
     },
     header: {
       ts: ((new Date() / 1000) | 0),
-      client_id: MERCH_ID
+      client_id: MERCH_ID,
+      version: "2-02"
     }
   };
 
@@ -197,7 +199,7 @@ app.post("/refund", (req, res) => {
   console.log("data:", base64_data);
   console.log("sign:", sign);
   console.log("body:", querystring.stringify({ data: base64_data, signature: sign }));
-  axios.post(DMR_API_URL + DMR_REFUND_URL, querystring.stringify({ data: base64_data, signature: sign }))
+  axios.post(DMR_API_URL + DMR_REFUND_URL, querystring.stringify({ data: base64_data, signature: sign, version: '2-07' }))
     .then(function (response) {
       console.log(response.data);
       console.log(response.status);
