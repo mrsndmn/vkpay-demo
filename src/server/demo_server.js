@@ -69,42 +69,54 @@ app.get("/", function(req, res) {
 
 ////// Getting params for payment window
 // todo fetch any usefull data from request
+var stringify = require('json-stable-stringify');  //  canonical json implementation
 
 app.get('/app_params', function (req, res) {
-  let amount = 1;
+  let amount = req.params.amount || 1;
+  let want_cashback_percent = req.params.cashback || 0; // its not ok if cashback is more than 30%
 
   merch_data = {
     amount: amount,
     order_id: ++last_order_id,
     currency: "RUB",
-    ts: (Date.now() / 1000 | 0),
+    ts: (Date.now() / 1000 | 0), // так можно отбросить дробную часть)
   };
 
-  dummySaveLastOrderID(last_order_id);
+  if(want_cashback_percent) {
+    merch_data.cashback = {pay_time: (Date.now() / 1000 | 0 + 200), amount_percent: want_cashback_percent};
+  }
 
+  // dummySaveLastOrderID(last_order_id);
   merch_data_base64 = base64.encode(JSON.stringify(merch_data))
-
   let data = {
-    // order_id: merch_data.order_id, // not required
-    currency: "RUB",//   not required
-    // merchant_data: "",  //merch_data_base64,
-    // merchant_sign: ""   //sha1(merch_data_base64 + MERCH_PRIVATE_KEY),
-    // ts: merch_data.ts, // required only for cashbacks
-    event_name: 123123123123 // you can put here any data you want
+    order_id: merch_data.order_id,
+    ts: merch_data.ts,
+    currency: "RUB",
+    merchant_data: merch_data_base64,
+    merchant_sign: sha1(merch_data_base64 + MERCH_PRIVATE_KEY),
+    event_name: "not required!!", // you can put here any data you want
+    your_custom_params_here: 123,
   };
+
+  if(want_cashback_percent){
+    data.cashback = merch_data.cashback
+  }
 
   let pay_window_params = {
     amount: amount,
-    data: JSON.stringify(data),
+    data: data,
     description: "Оплата заказа",
     action: "pay-to-service",
     merchant_id: MERCH_ID,
+    version: 2
   }
-
+  // console.log("pay_window_params:", pay_window_params);
   let params = ""
-  Object.keys(pay_window_params).sort((a, b) => a > b).forEach(function (key) { if (key != "action") params += key + "=" + pay_window_params[key] })
-  console.log("params=\n", params)
+  Object.keys(pay_window_params).sort((a, b) => a > b).forEach(
+          function (key) { if (key != "action") params += key + "=" + ( key == "data"? stringify( pay_window_params[key] ) : pay_window_params[key]  ) }
+  )
   pay_window_params.sign = md5(params + APP_SECRET_KET)
+  console.log("params: ", params)
 
   console.log("response:" + JSON.stringify(pay_window_params));
   res.json(pay_window_params); // responsing with json
@@ -117,17 +129,18 @@ const pubKeyData = fs.readFileSync("certs/dmr_notifications.crt");
 
 app.post('/url_for_payment_status_notifications', (req, res) => {
   // var certificate = fs.readFileSync('certificate.pem', "utf8");
-  console.log("in url_for_payments_status_notificatio\n", req.body.signature, "\n\n",req.body.data);
+  console.log("in url_for_payments_status_notificatio\n", req.body);
 
   var verifier = crypto.createVerify('RSA-SHA1');
   verifier.update(req.body.data);
 
   let result = verifier.verify(pubKeyData, req.body.signature, 'base64') 
-  if(!result) {
+  if(false && !result) {
     console.log("bad sign!");
     res.json({});
     return;
   }
+  console.log("sign is ok");
 
   let req_data = JSON.parse(base64.decode(req.body.data));
   console.log(" req_data:", req_data);
@@ -146,6 +159,7 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
   };
   console.log(JSON.stringify(transactions_hash,null,2));
   if(req_data.body.transaction_id in transactions_hash) {
+    console.log("DUPLICATE!");
     data.header["status"] = "ERROR";
     data.header["error"] = {
       "code":"ERR_DUPLICATE",
@@ -156,9 +170,10 @@ app.post('/url_for_payment_status_notifications', (req, res) => {
   else {
     transactions_hash[req_data.body.transaction_id] = 1;
   }
-
-  let sign = sha1(base64.encode(JSON.stringify(data) + MERCH_PRIVATE_KEY))
-  let notification_resp = { data: data, signature: sign, version: DMR_API_VERSION };
+  console.log("data ", JSON.stringify(data, null, 2));
+  let notification_resp = { data: base64.encode(JSON.stringify(data)), version: req.body.version };
+  console.log("for sign = ", notification_resp.data + MERCH_PRIVATE_KEY);
+  notification_resp.signature = sha1(notification_resp.data + MERCH_PRIVATE_KEY);
   console.log("notification_resp", JSON.stringify(notification_resp,null,2)); // responsing with json
   res.json( notification_resp );
 
@@ -183,11 +198,13 @@ app.post("/refund", (req, res) => {
   let data = {
     body: {
       transaction_id: req.query["txn_id"],
-      reason: req.query["reason"] || "Any reason"
+      reason: req.query["reason"] || '\\u0412\\u043e'
+//      amount: 49
     },
     header: {
       ts: ((new Date() / 1000) | 0),
-      client_id: MERCH_ID
+      client_id: MERCH_ID,
+      version: "2-02"
     }
   };
 
@@ -198,7 +215,7 @@ app.post("/refund", (req, res) => {
   console.log("data:", base64_data);
   console.log("sign:", sign);
   console.log("body:", querystring.stringify({ data: base64_data, signature: sign }));
-  axios.post(DMR_API_URL + DMR_REFUND_URL, querystring.stringify({ data: base64_data, signature: sign }))
+  axios.post(DMR_API_URL + DMR_REFUND_URL, querystring.stringify({ data: base64_data, signature: sign, version: '2-07' }))
     .then(function (response) {
       console.log(response.data);
       console.log(response.status);

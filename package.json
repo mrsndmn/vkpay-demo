@@ -8,14 +8,15 @@
     "body-parser": "^1.18.3",
     "crypto": "^1.0.1",
     "crypto2": "^2.0.0",
-    "express": "^4.16.3",
+    "express": "^4.16.4",
     "md5": "^2.2.1",
-    "node-rsa": "^1.0.1",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
+    "node-rsa": "^1.0.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "react-scripts": "1.1.5",
-    "react-vk": "^3.0.0",
-    "sha1": "^1.1.1"
+    "react-vk": "^3.5.2",
+    "sha1": "^1.1.1",
+    "utf8": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
