@@ -42,10 +42,12 @@ class App extends Component {
   }
 
   handleChangeCB(event) {
-    this.setState({amount: event.target.value});
+    console.log(event)
+    this.setState({amount: 1});
   }
   handleChangeAmount(event) {
-    this.setState({want_cashback_percent: event.target.value});
+    console.log(event)
+    this.setState({want_cashback_percent: 0});
   }
 
   render() {
