@@ -109,6 +109,7 @@ app.get('/app_params', function (req, res) {
     action: "pay-to-service",
     merchant_id: MERCH_ID,
     version: 2
+
   }
   // console.log("pay_window_params:", pay_window_params);
   let params = ""
