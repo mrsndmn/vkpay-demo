@@ -27,8 +27,8 @@ class App extends Component {
 
   payVKPay() {
 
-    var url = new URL("/app_params"),
-    params  = { want_cashback_percent: 0 || 0, amount: 1 || 1 }
+    var url = new URL(window.location.host + "/app_params"),
+    params  = { want_cashback_percent: this.state.want_cashback_percent || 0, amount: this.state.amount || 1 }
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
     // todo
     // на самом деже id приложеньки можно получить из урла запроса фронта. Его нужно сохранить и передавать на бэкенд в случае, когда хочешь поднять платежное окно
