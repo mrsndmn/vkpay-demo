@@ -7,6 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { want_cashback_percent: 0, amount: 1 }
+    this.payVKPay = this.payVKPay.bind(this);
   }
 
   componentDidMount() {
