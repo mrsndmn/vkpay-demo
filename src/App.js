@@ -27,7 +27,7 @@ class App extends Component {
 
   payVKPay() {
 
-    var url = new URL(window.location.host + "/app_params"),
+    var url = new URL(window.location.origin + "/app_params"),
     params  = { want_cashback_percent: this.state.want_cashback_percent || 0, amount: this.state.amount || 1 }
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
     // todo
