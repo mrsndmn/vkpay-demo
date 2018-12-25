@@ -55,11 +55,11 @@ class App extends Component {
       <div>
         <label>
           Amount:
-          <input type='number' onChange={()=>{this.handleChangeAmount(this.state.amount);}}  value={this.state.want_cashback_percent} />
+          <input type='number' onChange={()=>{this.handleChangeAmount(this.state.amount);}}  defaultValue={this.state.want_cashback_percent} />
         </label>
         <label>
           Cashback:
-          <input type='number' onChange={()=>{this.handleChangeCB(this.state.want_cashback_percent);}}  value={this.state.want_cashback_percent} />
+          <input type='number' onChange={()=>{this.handleChangeCB(this.state.want_cashback_percent);}}  defaultValue={this.state.want_cashback_percent} />
         </label>
 
         <button onClick={this.payVKPay} > Pay vkpay </button>
