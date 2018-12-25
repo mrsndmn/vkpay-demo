@@ -69,7 +69,9 @@ app.get('/app_params', function (req, res) {
     order_id: ++last_order_id,
     currency: "RUB",
     ts: (Date.now() / 1000 | 0),
-//    cashback: {pay_time: (Date.now() / 1000 | 0 + 200), amount_percent: 30}
+//    cashback: {pay_time: (Date.now() / 1000 | 0 + 50), amount_percent: 30}
+
+
   };
 
   dummySaveLastOrderID(last_order_id);
@@ -83,6 +85,7 @@ app.get('/app_params', function (req, res) {
     merchant_data: merch_data_base64,
     merchant_sign: sha1(merch_data_base64 + MERCH_PRIVATE_KEY),
     event_name: "ыва" // you can put here any data you want
+
   };
 
   let pay_window_params = {
@@ -93,6 +96,7 @@ app.get('/app_params', function (req, res) {
     action: "pay-to-service",
     merchant_id: MERCH_ID,
     version: 2
+
   }
   console.log("pay_window_params:", pay_window_params);
   let params = ""
